@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  food_name: MyString
+  food_image: MyString
+  food_category: MyString
+  kcal: 1
+  kalium: 1
+  calcium: 1
+  magnesium: 1
+  vitaminc: 1
+  liter: 1
+  gram: 1
+
+two:
+  food_name: MyString
+  food_image: MyString
+  food_category: MyString
+  kcal: 1
+  kalium: 1
+  calcium: 1
+  magnesium: 1
+  vitaminc: 1
+  liter: 1
+  gram: 1

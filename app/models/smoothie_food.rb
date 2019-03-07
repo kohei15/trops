@@ -1,0 +1,2 @@
+class SmoothieFood < ApplicationRecord
+end
