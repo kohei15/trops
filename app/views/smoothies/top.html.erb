@@ -5,3 +5,11 @@
 <% else %>
   <p>ようこそ、ゲスト様</p>
 <% end %>
+
+<div class="message_notice">
+<%= flash[:notice] %>
+</div>
+
+<p><%= link_to "登録ページ" ,new_user_registration_path %></p>
+<p><%= link_to "ログインページ" ,new_user_session_path %></p>
+<p><%= link_to "編集ページ" ,edit_user_path %></p>
