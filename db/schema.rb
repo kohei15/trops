@@ -10,7 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_06_074103) do
+ActiveRecord::Schema.define(version: 2019_03_07_022947) do
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "smoothie_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "foods", force: :cascade do |t|
+    t.string "food_name"
+    t.string "food_image"
+    t.string "food_category"
+    t.integer "kcal"
+    t.integer "kalium"
+    t.integer "calcium"
+    t.integer "magnesium"
+    t.integer "vitaminc"
+    t.integer "liter"
+    t.integer "gram"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "smoothie_foods", force: :cascade do |t|
+    t.integer "smoothie_id"
+    t.integer "food_id"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "smoothies", force: :cascade do |t|
+    t.string "smoothie_name"
+    t.string "smoothie_image"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.integer "user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
