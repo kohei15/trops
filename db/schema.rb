@@ -27,9 +27,11 @@ ActiveRecord::Schema.define(version: 2019_03_07_022947) do
     t.integer "kalium"
     t.integer "calcium"
     t.integer "magnesium"
+    t.integer "b_carotene"
     t.integer "vitaminc"
     t.integer "liter"
     t.integer "gram"
+    t.string "unit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

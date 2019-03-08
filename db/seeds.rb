@@ -7,9 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # coding: utf-8
 
-
 10.times do |i|
-     User.create!(name: "テスト#{i + 1}", email: "test#{i + 1}@gmail.com", password: "testtest#{i + 1}")
-     Smoothie.create!(smoothie_name: "スムージー#{i + 1}", comment: "コメントコメントコメントコメント", user_id: "#{1}")
-     Food.create!(food_name: "食材#{i + 1}", kcal:100, kalium: 100, calcium: 100, magnesium: 100, vitaminc: 100, liter: 100, gram: 100)
+     User.create!(id: "#{i + 2}", name: "テスト#{i + 1}", email: "test#{i + 1}@gmail.com", password: "testtest#{i + 1}")
+     Smoothie.create!(smoothie_name: "スムージー#{i + 1}", comment: "コメントコメントコメントコメント", user_id: "#{i + 2}")
+end
+
+require 'csv'
+csv_data = CSV.read('db/seed.csv', headers: true)
+csv_data.each do |data|
+  Food.create!(data.to_hash)
 end
