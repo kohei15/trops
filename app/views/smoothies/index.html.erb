@@ -1,2 +1,21 @@
-<h1>Smoothies#index</h1>
-<p>Find me in app/views/smoothies/index.html.erb</p>
+<div class="container">
+
+<h4>スムージー一覧</h4>
+<div class="card-columns">
+<% @smoothies.each do |smoothie| %>
+	<div class="card card-body text-center" style="width: 18rem;">
+	  <div class="card-body">
+	  	<h5 class="card-title"><%= smoothie.smoothie_name %></h5>
+	  	<% if smoothie.image.attached? %>
+	  		<%= image_tag smoothie.image %>
+	  	<% else %>
+	  		<%= image_tag 'no_image.jpg' %>
+	  	<% end %>
+	  	<p class="card-text my-2"><%= smoothie.comment %></p>
+	  	<%= link_to "詳細をみる", smoothy_path(smoothie.id), class: "btn btn-primary" %>
+	  	</div>
+	</div>
+<% end %>
+</div><!-- card-columns -->
+
+</div><!-- container -->

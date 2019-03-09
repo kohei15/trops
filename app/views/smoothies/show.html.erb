@@ -1,2 +1,9 @@
-<h1>Smoothies#show</h1>
-<p>Find me in app/views/smoothies/show.html.erb</p>
+<%= @smoothie.smoothie_name %>
+
+<% if @smoothie.image.attached? %>
+	<%= @image_tag smoothie.image %>
+<% else %>
+	<%= @image_tag 'no_image.jpg' %>
+<% end %>
+
+<%= @smoothie.comment %>

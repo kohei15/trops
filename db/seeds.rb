@@ -7,13 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # coding: utf-8
 
-10.times do |i|
-     User.create!(id: "#{i + 2}", name: "テスト#{i + 1}", email: "test#{i + 1}@gmail.com", password: "testtest#{i + 1}")
-     Smoothie.create!(smoothie_name: "スムージー#{i + 1}", comment: "コメントコメントコメントコメント", user_id: "#{i + 2}")
+# User.create!(id: "1", name: "われはかみなり", email: "admin@gmail.com", password: "admin", role: "1")
+
+(2..10).each do |i|
+     User.create!(id: i, name: "ユーザー#{i}", email: "test#{i}@gmail.com", password: "testtest")
+     10.times do |j|
+     	Smoothie.create!(smoothie_name: "スムージー#{i}", comment: "コメントコメントコメントコメント", user_id: i)
+	end
 end
 
 require 'csv'
 csv_data = CSV.read('db/seed.csv', headers: true)
 csv_data.each do |data|
   Food.create!(data.to_hash)
-end
+endUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
