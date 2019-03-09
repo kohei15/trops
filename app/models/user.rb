@@ -8,4 +8,7 @@ class User < ApplicationRecord
   has_many :favorites
 
   validates :name, presence: true
+
+  # 管理者権限
+  enum role: {user: 0, admin: 1}
 end

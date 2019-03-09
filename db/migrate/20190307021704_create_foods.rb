@@ -8,9 +8,11 @@ class CreateFoods < ActiveRecord::Migration[5.2]
       t.integer :kalium
       t.integer :calcium
       t.integer :magnesium
+      t.integer :b_carotene
       t.integer :vitaminc
       t.integer :liter
       t.integer :gram
+      t.string :unit
 
       t.timestamps
     end

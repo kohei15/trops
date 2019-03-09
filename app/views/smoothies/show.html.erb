@@ -1,2 +1,24 @@
-<h1>Smoothies#show</h1>
-<p>Find me in app/views/smoothies/show.html.erb</p>
+<div class="container">
+
+<div class="card card-body text-center" style="width: 18rem;">
+  <div class="card-body">
+  	<h5 class="card-title"><%= @smoothie.smoothie_name %></h5>
+  	<% if @smoothie.image.attached? %>
+  		<%= image_tag smoothie.image %>
+  	<% else %>
+  		<%= image_tag 'no_image.jpg' %>
+  	<% end %>
+  	<p class="card-text my-2"><%= @smoothie.comment %></p>
+  </div><!-- card-body -->
+</div><!-- card -->
+
+<p>栄養成分チャート</p>
+<p>β-カロテン:</p>
+<p>カルシウム:</p>
+<p>カリウム:</p>
+<p>マグネシウム:</p>
+<p>ビタミンC:</p>
+<p></p>
+<p>kcal:</p>
+
+<div class="container">
