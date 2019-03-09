@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   root 'smoothies#top'
   resources :foods
   resources :smoothies
-  resource :user, except:[:index]
-  resources :users, only:[:index]
+  resources :users
 
    devise_for :users, controllers: {
     sessions:      'users/sessions',
