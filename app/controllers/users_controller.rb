@@ -1,11 +1,28 @@
 class UsersController < ApplicationController
 	def index
-		@users = User.all.order(created_at: "desc")
+		@users = User.all
 	end
 
 	def show
-		
+		@user = current_user
 	end
+
+	def edit
+		@user = current_user
+	end
+
+	def update
+		@user = current_user
+		if @user.update(user_params)
+			flash[:notice] = "変更内容を更新しました"
+			sign_in(@user, :bypass => true)
+			redirect_to root_path
+		else
+			render :edit
+		end
+		@users = User.all.order(created_at: "desc")
+	end
+
 
 	def edit
 		@user = User.find(params[:id])

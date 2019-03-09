@@ -1,1 +1,6 @@
 show
+<% if user_signed_in? %>
+  <p>ようこそ、<%= current_user.name %> 様</p>
+<% else %>
+  <p>ようこそ、ゲスト様</p>
+<% end %>
