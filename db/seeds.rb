@@ -20,4 +20,4 @@ require 'csv'
 csv_data = CSV.read('db/seed.csv', headers: true)
 csv_data.each do |data|
   Food.create!(data.to_hash)
-endUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+end
