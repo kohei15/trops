@@ -4,3 +4,13 @@ show
 <% else %>
   <p>ようこそ、ゲスト様</p>
 <% end %>
+
+<div class="card border-secondary my-3 p-3">
+	<ul class="ml-5">
+		<li>名前：<%= current_user.name %></li>
+		<li>メールアドレス：<%= current_user.email %></li>
+		</ul>
+	<div class="mx-auto text-center col-8">
+		<%= link_to "編集する", edit_user_path ,class: "btn btn-warning btn-lg" %>
+	</div><!-- mx-auto text-center col-8 -->
+</div><!-- card border-secondary my-3 p-3 -->

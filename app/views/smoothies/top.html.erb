@@ -14,7 +14,7 @@
 	<!-- ログイン時 -->
 	<%= link_to "ログアウト", destroy_user_session_path, method: :delete %><br>
 	<%= link_to "マイページ", user_path(current_user.id) %><br>
-	<%= link_to "編集ページ" ,edit_user_path %><br>
+	<%= link_to "編集ページ" ,edit_user_path(current_user.id) %><br>
 
 <% else %>
 	<!-- 未ログイン時 -->
