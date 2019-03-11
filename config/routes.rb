@@ -3,12 +3,11 @@ Rails.application.routes.draw do
   root 'smoothies#top'
   resources :foods
   resources :smoothies
-  resources :users
 
    devise_for :users, controllers: {
     sessions:      'users/sessions',
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
-
+  resources :users
 end

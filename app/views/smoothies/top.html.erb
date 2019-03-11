@@ -1,25 +1,14 @@
+<%= render 'layouts/header' %>
+
+<div class="bg">
+<div class="container">
 <h1>Smoothies#top</h1>
 <p>Find me in app/views/smoothies/top.html.erb</p>
+
 <% if user_signed_in? %>
   <p>ようこそ、<%= current_user.name %> 様</p>
 <% else %>
   <p>ようこそ、ゲスト様</p>
 <% end %>
-
-<div class="message_notice">
-<%= flash[:notice] %>
-</div>
-
-<% if user_signed_in? %>
-	<!-- ログイン時 -->
-	<%= link_to "ログアウト", destroy_user_session_path, method: :delete %><br>
-	<%= link_to "マイページ", user_path(current_user.id) %><br>
-	<%= link_to "編集ページ" ,edit_user_path(current_user.id) %><br>
-
-<% else %>
-	<!-- 未ログイン時 -->
-	<%= link_to "ログイン", new_user_session_path %><br>
-	<%= link_to "新規登録", new_user_registration_path %><br>
-<% end %>
-
-<%= link_to "スムージー一覧", smoothies_path %><br>
+</div><!-- container -->
+</div><!-- bg -->
