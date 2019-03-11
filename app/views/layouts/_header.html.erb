@@ -1,0 +1,104 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <%= link_to root_path ,class: "navbar-brand" do %>
+    <%= image_tag 'logo.png' %>
+    <% end %>
+    <!-- SPのみ表示 -->
+    <ul class="navbar-nav ml-auto mr-3 icon-wrapper invisible-pc">
+      <!-- ログイン時 -->
+      <% if user_signed_in? %>
+        <li class="nav-item icon-content">
+          <%= link_to user_path(current_user.id), class: "nav-link" do %>
+          <%= image_tag 'mypage.png' %>
+          <span class="icon-text">マイページ</span>
+          <% end %>
+        </li>
+      <!-- 未ログイン時 -->
+      <% else %>
+        <li class="nav-item icon-content">
+          <%= link_to new_user_session_path, class: "nav-link" do %>
+          <%= image_tag 'login.png' %>
+          <span class="icon-text">ログイン</span>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="ナビゲーションの切替">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">はじめての方へ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">カスタマイズする</a>
+        </li>
+        <li class="nav-item">
+          <%= link_to "スムージー一覧", smoothies_path, class: "nav-link" %>
+        </li>
+        <!-- SPのみ表示 -->
+          <div class="invisible-pc">
+            <li class="nav-item">
+              <%= link_to "お問い合わせ", smoothies_path, class: "nav-link" %>
+            </li>
+            <!-- ログイン時 -->
+            <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
+            </li>
+            <!-- 未ログイン時 -->
+            <% else %>
+            <li class="nav-item">
+              <%= link_to "新規登録", new_user_registration_path, class: "nav-link" %>
+            </li>
+            <% end %>
+          </div>
+        </ul>
+    </div><!-- collapse -->
+
+      <!-- PCのみ表示 -->
+      <ul class="navbar-nav icon-wrapper invisible-sp">
+        <li class="nav-item icon-content">
+          <%= link_to smoothies_path, class: "nav-link" do %>
+          <%= image_tag 'mail.png' %>
+          <span class="icon-text">お問い合わせ</span>
+          <% end %>
+        </li>
+        <!-- ログイン時 -->
+        <% if user_signed_in? %>
+        <li class="nav-item icon-content">
+          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+            <%= image_tag 'logout.png' %>
+            <span class="icon-text">ログアウト</span>
+          <% end %>
+        </li>
+        <li class="nav-item icon-content">
+          <%= link_to user_path(current_user.id), class: "nav-link" do %>
+          <%= image_tag 'mypage.png' %>
+          <span class="icon-text">マイページ</span>
+          <% end %>
+        </li>
+        <!-- 未ログイン時 -->
+        <% else %>
+        <li class="nav-item icon-content">
+          <%= link_to new_user_session_path, class: "nav-link" do %>
+          <%= image_tag 'login.png' %>
+          <span class="icon-text">ログイン</span>
+          <% end %>
+        </li>
+        <li class="nav-item icon-content">
+          <%= link_to new_user_registration_path, class: "nav-link" do %>
+          <%= image_tag 'mypage.png' %>
+          <span class="icon-text">新規登録</span>
+          <% end %>
+        </li>
+        <% end %>
+      </ul>
+  </nav>
+</header>
+<div class="message_notice">
+<%= flash[:notice] %>
+</div>
+<div class="head-hr"></div>

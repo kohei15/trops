@@ -25,15 +25,75 @@
   display: block;
   clear: both;
 }
+.navbar-brand img{
+	width: 150px;
+    height: auto;
+}
+.icon-content {
+	float: left;
+}
+.icon-wrapper {
+	display: inline-block;
+}
+.icon-wrapper img {
+	width: 30px;
+	height: auto;
+	display: block;
+    margin: 0 auto;
+}
+.icon-text {
+	font-size: 12px;
+}
+.invisible-pc {
+	display: none;
+}
+.invisible-sp {
+	display: inline-block;
+}
+.head-hr {
+    width: 100%;
+    background-color: #fff;
+    border-top: solid 1px #d4d4c0;
+    overflow: hidden;
+}
+
+.bg {
+	background-color: #f6f1ea;
+}
+
+header {
+	max-width: 1080px;
+	margin: 0 auto;
+}
 
 .container {
 	max-width: 1080px;
+	padding: 20px;
 }
 
+.card-wrapper {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+.card {
+	border-radius: 10px;
+	margin: 1rem 0;
+}
 .card-body img {
 	width: 100%;
 }
+.card-date {
+	font-size: 14px;
+	margin-top: 1rem
+}
 
+
+.index-h2 {
+	background: #dfefff;
+	box-shadow: 0px 0px 0px 5px #dfefff;
+	border: dashed 2px white;
+	padding: 0.2em 0.5em;
+}
 
 // ログイン・会員登録画面
 .account-item {
@@ -128,5 +188,25 @@ input[type="email"] {
 	}
 	.cp_tab label {
 		padding: 0.5em;
+	}
+}
+
+
+/*レスポンシブCSS*/
+@media screen and (max-width:991px) {
+	.icon-wrapper img {
+    	width: 20px;
+	}
+	.icon-content {
+		height: 50px;
+	}
+	.icon-text {
+    	font-size: 10px;
+	}
+	.invisible-pc {
+		display: inline-block;
+	}
+	.invisible-sp {
+		display: none;
 	}
 }
