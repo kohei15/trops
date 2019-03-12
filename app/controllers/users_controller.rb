@@ -4,7 +4,8 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = current_user
+		@user = User.find(params[:id])
+		@smoothies = Smoothie.all.order(created_at: "desc")
 	end
 
 	def edit
@@ -12,7 +13,7 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		@user = current_user
+		@user = User.find(params[:id])
 		if @user.update(user_params)
 			flash[:notice] = "変更内容を更新しました"
 			sign_in(@user, :bypass => true)
@@ -20,18 +21,6 @@ class UsersController < ApplicationController
 		else
 			render :edit
 		end
-		@users = User.all.order(created_at: "desc")
-	end
-
-
-	def edit
-		@user = User.find(params[:id])
-	end
-
-	def update
-		user = User.find(params[:id])
-    	user.update(user_params)
-    	redirect_to user_path(user.id)
 	end
 
 	def new

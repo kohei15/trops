@@ -8,11 +8,14 @@
   <div class="card-body">
   	<h5 class="card-title"><%= @smoothie.smoothie_name %></h5>
   	<% if @smoothie.image.attached? %>
-  		<%= image_tag smoothie.image %>
+  		<%= image_tag @smoothie.image %>
   	<% else %>
   		<%= image_tag 'no_image.jpg' %>
   	<% end %>
   	<p class="card-text my-2"><%= @smoothie.comment %></p>
+  	<div class="mx-auto text-center">
+		<%= link_to "編集する", edit_smoothy_path ,class: "btn btn-warning" %>
+	</div>
   </div><!-- card-body -->
 </div><!-- card -->
 
