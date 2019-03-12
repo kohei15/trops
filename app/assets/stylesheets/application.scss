@@ -19,6 +19,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color :#696059;
 }
 .clearfix::after {
   content: "";
@@ -138,71 +139,106 @@ textarea {
 }
 
 
-/*タブ切り替え*/
-.cp_tab *, .cp_tab *:before, .cp_tab *:after {
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+// カスタマイズページ
+/*タブ切り替え全体のスタイル*/
+.nav-tabs {
+	width: 100%;
+	display: flex;
 }
-.cp_tab {
-	margin: 1em auto;
+.nav-tabs li {
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+	width: calc(100%/4);
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.2s ease;
 }
-.cp_tab > input[type='radio'] {
-	margin: 0;
-	padding: 0;
-	border: none;
-	border-radius: 0;
-	outline: none;
-	background: none;
-	-webkit-appearance: none;
-	        appearance: none;
-	display: none;
-}
-.cp_tab .cp_tabpanel {
-	display: none;
-}
-.cp_tab > input:first-child:checked ~ .cp_tabpanels > .cp_tabpanel:first-child,
-.cp_tab > input:nth-child(3):checked ~ .cp_tabpanels > .cp_tabpanel:nth-child(2),
-.cp_tab > input:nth-child(5):checked ~ .cp_tabpanels > .cp_tabpanel:nth-child(3),
-.cp_tab > input:nth-child(7):checked ~ .cp_tabpanels > .cp_tabpanel:nth-child(4),
-.cp_tab > input:nth-child(9):checked ~ .cp_tabpanels > .cp_tabpanel:nth-child(5),
-.cp_tab > input:nth-child(11):checked ~ .cp_tabpanels > .cp_tabpanel:nth-child(6) {
-	display: block;
-}
-.cp_tab > label {
-	position: relative;
+.nav-tabs li a {
 	display: inline-block;
-	padding: 15px;
-	cursor: pointer;
-	border: 1px solid transparent;
-	border-bottom: 0;
-    width: 49%;
-    border-radius: 6px 6px 0 0;
-    text-align: center;;
+	width: 100%;
+	color: #696059;
+	text-decoration: none;
 }
-.cp_tab > label:hover,
-.cp_tab > input:focus + label {
-	color: #0066cc;
+.nav-tabs li:hover {
+	opacity: 0.75;
 }
-.cp_tab > input:checked + label {
-	margin-bottom: -1px;
-	border-color: #cccccc;
-	border-bottom: 1px solid #ffffff;/*背景色と同じ*/
-	border-radius: 6px 6px 0 0;
-	width: 50%;
+.tab-fruits {
+	border: 1px solid #e3d395;
+}
+.tab-vegetables {
+	border: 1px solid #e3d395;
+}
+.tab-liquid {
+	border: 1px solid #e3d395;
+}
+.tab-other {
+	border: 1px solid #e3d395;
+}
+.tab-fruits .active {
+	background-color: #F78282;
+	color: #fff;
+}
+.tab-vegetables .active {
+	background-color: #32A86C;
+	color: #fff;
+}
+.tab-liquid .active {
+	background-color: #5ab4bd;
+	color: #fff;
+}
+.tab-other .active {
+	background-color: #e3d395;
+	color: #fff;
+}
+
+.food_content {
+	background-color: #FFF;
+    padding: 1rem;
+    max-width: 300px;
+    border-radius: 20px;
+}
+.food_image {
+	max-width: 80%;
+	margin: 0 auto;
 	text-align: center;
 }
-.cp_tab .cp_tabpanel {
-	padding: 0 1em;
+.food_image img {
+	width: 100%;
 }
-@media (max-width: 480px) {
-	.cp_tab {
-		width: 100%;
-		font-size: 0.8em;
-	}
-	.cp_tab label {
-		padding: 0.5em;
-	}
+
+.spinner_wrapper {
+    display: flex;
+    width: 200px;
+    padding-left: 5px;
+    padding-top: 8px;
+    margin: 0 auto;
 }
+input.food_quantity {
+    width: 80px;
+    height: 34px;
+    float: left;
+    margin: 0 0.5rem;
+    text-align: right;
+    padding: 0 5px;
+}
+input.spinner_up {
+    margin: 0 0.5rem;
+    border: 0px;
+    width: 30px;
+    height: 30px;
+    background: url("plus.png") no-repeat;
+    background-size:cover;
+}
+input.spinner_down {
+	margin: 0 0.5rem;
+    border: 0px;
+    width: 30px;
+    height: 30px;
+    background: url("minus.png") no-repeat;
+    background-size:cover;
+}
+
 
 
 /*レスポンシブCSS*/

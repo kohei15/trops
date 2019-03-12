@@ -38,6 +38,10 @@ class SmoothiesController < ApplicationController
   def destroy
   end
 
+  def custom
+    @smoothie = Smoothie.new
+  end
+
   private
   def smoothie_params
     params.require(:smoothie).permit(:smoothie_name, :image, :smoothie_image, :comment, :user_id)

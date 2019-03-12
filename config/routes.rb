@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :smoothies do
     resource :favorite, only: [:create, :destroy]
   end
+  get 'smoothie/custom' => "smoothies#custom", as: "custom"
 
    devise_for :users, controllers: {
     sessions:      'users/sessions',

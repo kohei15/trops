@@ -15,24 +15,8 @@
 </div><!-- card border-secondary my-3 p-3 -->
 
 <h2 class="index-h2"><%= @user.name %>さんの投稿したスムージー一覧</h2>
-<div class="card-wrapper">
-<% @smoothies.each do |smoothie| %>
-	<div class="card text-center" style="width: 12rem;">
-	  <div class="card-body">
-	  	<h5 class="card-title"><%= smoothie.smoothie_name %></h5>
-	  	<% if smoothie.image.attached? %>
-	  		<%= image_tag smoothie.image %>
-	  	<% else %>
-	  		<%= image_tag 'no_image.jpg' %>
-	  	<% end %>
-	  	<p class="card-text text-left my-2"><%= smoothie.user.name %></p>
-	  	<%= link_to "編集する", edit_smoothy_path(smoothie.id), class: "btn btn-primary my-2" %>
-	  	<%= link_to "詳細をみる", smoothy_path(smoothie.id), class: "btn btn-primary" %>
-	  	<p class="text-right card-date"><%= smoothie.created_at.strftime('%Y.%m.%d')  %>お気に入り数</p>
-	  	</div>
-	</div>
-<% end %>
-</div><!-- card-wrapper -->
+<%= render 'smoothies/smoothie_contents' %>
+
 
 </div><!-- container -->
 </div><!-- bg -->

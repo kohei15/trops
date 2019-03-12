@@ -1,0 +1,82 @@
+<%= render 'layouts/header' %>
+
+<div class="bg">
+<div class="container">
+<%= render 'layouts/loginstatus' %>
+
+<h2 class="index-h2">カスタマイズ</h2>
+
+<div>
+  <ul class="nav nav-tabs my-3 mx-auto" role="tablist">
+    <li class="tab-fruits" role="presentation">
+      <a aria-controls="tab_a" data-toggle="tab" href="#tab_a" role="tab">フルーツ</a>
+    </li>
+    <li class="tab-vegetables" role="presentation">
+      <a aria-controls="tab_b" data-toggle="tab" href="#tab_b" role="tab">野菜</a>
+    </li>
+    <li class="tab-liquid" role="presentation">
+      <a aria-controls="tab_c" data-toggle="tab" href="#tab_c" role="tab">水分</a>
+    </li>
+    <li class="tab-other" role="presentation">
+      <a aria-controls="tab_c" data-toggle="tab" href="#tab_d" role="tab">その他</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane" id="tab_a" role="tabpanel">
+      <div class="food_content">
+        <div class="food_title">小松菜</div>
+        <div class="food_image"><%= image_tag 'komatsuna.jpg' %></div>
+        <div class="food_gram">1個あたりの可食部50g</div>
+        <div class="food_kcal">50gあたり192kcal</div>
+	    <!--★スピナー★-->
+	    <div class="spinner_wrapper">
+	        <input class="food_quantity" type="number" name="quantity" value="0" min="0" max="10">
+	        <input type="button" name="spinner_up" class="spinner_up" value="" onclick="javascript:spinner('up');">
+	        <input type="button" name="spinner_up" class="spinner_down" value="" onclick="javascript:spinner('down');">
+	    </div>
+      </div>
+    </div>
+    <div class="tab-pane" id="tab_b" role="tabpanel">
+      <ul>
+        <li>タブB</li>
+      </ul>
+    </div>
+    <div class="tab-pane" id="tab_c" role="tabpanel">
+      <ul>
+        <li>タブC!</li>
+      </ul>
+    </div>
+    <div class="tab-pane" id="tab_d" role="tabpanel">
+      <ul>
+        <li>タブD!</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div><!-- container -->
+</div><!-- bg -->
