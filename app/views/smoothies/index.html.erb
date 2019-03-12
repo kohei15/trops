@@ -2,6 +2,7 @@
 
 <div class="bg">
 <div class="container">
+<%= render 'layouts/loginstatus' %>
 
 <h2 class="index-h2">みんなのスムージー</h2>
 <div class="card-wrapper">
@@ -18,7 +19,22 @@
 	  	<% end %>
 	  	<p class="card-text text-left my-2"><%= link_to smoothie.user.name, user_path(smoothie.user_id) %></p>
 	  	<%= link_to "詳細をみる", smoothy_path(smoothie.id), class: "btn btn-primary" %>
-	  	<p class="text-right card-date favorite"><%= smoothie.created_at.strftime('%Y.%m.%d')  %><%= image_tag 'login.png', :size =>'14x14' %></p>
+	  	<p class="text-right card-date favorite">
+	  		<!-- 日付 -->
+	  		<%= smoothie.created_at.strftime('%Y.%m.%d')  %>
+	  		<!-- お気に入り数 -->
+	  	  <% if smoothie.favorited_by?(current_user) %>
+	  		<%= link_to smoothy_favorite_path(smoothie), method: :delete do %>
+		      <%= image_tag 'heart_off.png', :size =>'14x14' %>
+		      <%= smoothie.favorites.count %>
+		    <% end %>
+	  	  <% else %>
+	  		<%= link_to smoothy_favorite_path(smoothie), method: :post do %>
+		      <%= image_tag 'heart_on.png', :size =>'14x14' %>
+		      <%= smoothie.favorites.count %>
+		    <% end %>
+	  	  <% end %>
+	  	</p>
 	  	</div><!-- card-body -->
 	</div><!-- card -->
 <% end %>

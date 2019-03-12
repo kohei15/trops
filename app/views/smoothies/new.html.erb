@@ -1,10 +1,11 @@
 <%= render 'layouts/header' %>
 
+<div class="bg">
+<div class="container">
+
 <h2 class="text-center mx-auto pt-5 pb-3">スムージーの新規投稿</h2>
 <hr>
-<div class="container px-5">
 
-<h1>新規投稿</h1>
 <%= form_for(@smoothie) do |f| %>
 <div class="field mt-3">
   <div class="field mt-4">
@@ -14,7 +15,7 @@
 
   <div class="field mt-4">
     <label for="comment">一言コメント</label><br />
-    <%= f.text_field :comment, class: "pl-2", id: "comment" %>
+    <%= f.text_area :comment, rows: 3, class: "pl-2", id: "comment" %>
   </div>
 
   <div class="field mt-4">
@@ -31,3 +32,4 @@
 <% end %>
 
 </div><!-- container -->
+</div><!-- bg -->
