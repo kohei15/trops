@@ -3,7 +3,7 @@ class SmoothiesController < ApplicationController
   end
 
   def index
-    @smoothies = Smoothie.all.order(created_at: "desc")
+    @smoothies = Smoothie.all.order(created_at: "desc").includes(:user)
   end
 
   def show

@@ -21,3 +21,7 @@ csv_data = CSV.read('db/seed.csv', headers: true)
 csv_data.each do |data|
   Food.create!(data.to_hash)
 end
+
+Smoothie.create!(smoothie_name: "かぼちゃのスムージー", comment: "かぼちゃをたっぷり使いました", user_id: 2, image: "pumpkin.jpg")
+Smoothie.create!(smoothie_name: "グリーンスムージー", comment: "野菜をたくさん入れました", user_id: 2, image: "green.jpg")
+Smoothie.create!(smoothie_name: "ブルーベリーのスムージー", comment: "目が良くなりそうです", user_id: 2, image: "blueberry.jpg")
