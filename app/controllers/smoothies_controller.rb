@@ -17,7 +17,7 @@ class SmoothiesController < ApplicationController
   def update
     smoothie = Smoothie.find(params[:id])
     smoothie.update(smoothie_params)
-    redirect_to smoothy_path(smoothy.id)
+    redirect_to smoothy_path(smoothie.id)
   end
 
   def new
@@ -26,8 +26,13 @@ class SmoothiesController < ApplicationController
 
   def create
     smoothie = Smoothie.new(smoothie_params)
-    smoothie.save
-    redirect_to '/'
+    if smoothie.user_id = current_user.id
+        smoothie.save
+        flash[:notice] = "投稿しました。"
+        redirect_to smoothy_path(smoothie.id)
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -35,6 +40,6 @@ class SmoothiesController < ApplicationController
 
   private
   def smoothie_params
-    params.require(:smoothie).permit(:smoothie_name, :image, :smoothie_image, :comment)
+    params.require(:smoothie).permit(:smoothie_name, :image, :smoothie_image, :comment, :user_id)
   end
 end

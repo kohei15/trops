@@ -8,20 +8,21 @@
 <% @smoothies.each do |smoothie| %>
 	<div class="card text-center" style="width: 12rem;">
 	  <div class="card-body">
-	  	<h5 class="card-title"><%= smoothie.smoothie_name %></h5>
+	  	<h5 class="card-title"><%= link_to smoothie.smoothie_name,smoothy_path(smoothie.id) %></h5>
 	  	<% if smoothie.image.attached? %>
+	  		<%= link_to smoothy_path(smoothie.id) do %>
 	  		<%= image_tag smoothie.image %>
+	  		<% end %>
 	  	<% else %>
 	  		<%= image_tag 'no_image.jpg' %>
 	  	<% end %>
-	  	<p class="card-text text-left my-2"><%= smoothie.user.name %></p>
-	  	<p class="card-text text-left my-2"><%= smoothie.comment %></p>
+	  	<p class="card-text text-left my-2"><%= link_to smoothie.user.name, user_path(smoothie.user_id) %></p>
 	  	<%= link_to "詳細をみる", smoothy_path(smoothie.id), class: "btn btn-primary" %>
-	  	<p class="text-right card-date"><%= smoothie.created_at.strftime('%Y.%m.%d')  %>お気に入り数</p>
-	  	</div>
-	</div>
+	  	<p class="text-right card-date favorite"><%= smoothie.created_at.strftime('%Y.%m.%d')  %><%= image_tag 'login.png', :size =>'14x14' %></p>
+	  	</div><!-- card-body -->
+	</div><!-- card -->
 <% end %>
-</div><!-- card-columns -->
+</div><!-- card-wrapper -->
 
 </div><!-- container -->
 </div><!-- bg -->
