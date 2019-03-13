@@ -38,19 +38,22 @@ ActiveRecord::Schema.define(version: 2019_03_09_090940) do
     t.integer "smoothie_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["smoothie_id"], name: "index_favorites_on_smoothie_id"
+    t.index ["user_id", "smoothie_id"], name: "index_favorites_on_user_id_and_smoothie_id", unique: true
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "foods", force: :cascade do |t|
     t.string "food_name"
     t.string "food_image"
-    t.string "food_category"
-    t.integer "kcal"
-    t.integer "kalium"
-    t.integer "calcium"
-    t.integer "magnesium"
-    t.integer "b_carotene"
-    t.integer "vitaminc"
-    t.integer "liter"
+    t.string "food_category", limit: 1, default: "0", null: false
+    t.float "kcal"
+    t.float "kalium"
+    t.float "calcium"
+    t.float "magnesium"
+    t.float "b_carotene"
+    t.float "vitaminc"
+    t.float "liter"
     t.integer "gram"
     t.string "unit"
     t.datetime "created_at", null: false

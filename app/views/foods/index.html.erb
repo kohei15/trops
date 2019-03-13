@@ -1,2 +1,29 @@
-<h1>Foods#index</h1>
-<p>Find me in app/views/foods/index.html.erb</p>
+<%= render 'layouts/header' %>
+<div class="bg">
+<div class="container">
+	<h2 class="index-h2">食材一覧</h2>
+	<table class="table table-hover table-inverse">
+	  <thead>
+	  	<tr>
+	  	  <th></th>
+	  	  <th>Title</th>
+	  	  <th>Opinion</th>
+	  	  <th colspan="3"></th>
+	  	</tr>
+	  </thead>
+	  <tbody>
+	  	<% @foods.each do |food| %>
+	  	<tr>
+	  	  <td>
+	  	  	<%= link_to food_path(food.id) do %>
+	  	  	<%= image_tag 'heart_off.png', size: "50x50" %>
+	  	  	<% end %>
+	  	  </td>
+	  	  <td><%= link_to food.food_name, food_path(food.id) %></td>
+	  	  <td><%= food.body %></td>
+	  	</tr>
+	  </tbody>
+	  <% end %>
+	</table>
+</div><!-- container -->
+</div><!-- bg -->
