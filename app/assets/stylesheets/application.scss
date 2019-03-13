@@ -119,19 +119,22 @@ header {
 	margin-left: 1em;
 }
 input[type="text"] {
-        width: 30em;
-        height: 40px;
-        border: 1px #6c757d solid;
+    width: 30em;
+    height: 40px;
+    border: 1px #6c757d solid;
 }
 input[type="password"] {
-        width: 30em;
-        height: 40px;
-        border: 1px #6c757d solid;
+    width: 30em;
+    height: 40px;
+    border: 1px #6c757d solid;
 }
 input[type="email"] {
-        width: 30em;
-        height: 40px;
-        border: 1px #6c757d solid;
+    width: 30em;
+    height: 40px;
+    border: 1px #6c757d solid;
+}
+select {
+	height: 40px;
 }
 textarea {
 	width: 30em;

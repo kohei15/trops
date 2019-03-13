@@ -1,2 +1,80 @@
-<h1>Foods#new</h1>
-<p>Find me in app/views/foods/new.html.erb</p>
+<%= render 'layouts/header' %>
+
+<div class="bg">
+<div class="container">
+
+<h2 class="text-center mx-auto pt-5 pb-3">食材の新規投稿</h2>
+<hr>
+
+<%= form_for(@food) do |f| %>
+<div class="field mt-3">
+  <div class="field mt-4">
+    <label for="food_name">食材名</label><br />
+    <%= f.text_field :food_name, autofocus: true, class: "pl-2", id: "food_name" %>
+  </div>
+
+  <div class="field mt-4">
+    <label>食材のカテゴリー</label><br />
+    <%= f.select :food_category, Food.food_categories.keys.to_a %>
+  </div>
+
+  <div class="field mt-4">
+    <label for="kcal">カロリー</label><br />
+    <%= f.text_field :kcal, class: "pl-2", id: "kcal" %>
+  </div>
+
+  <div class="field mt-4">
+    <label for="kalium">カリウム</label><br />
+    <%= f.text_field :kalium, class: "pl-2", id: "kalium" %>
+  </div>
+
+  <div class="field mt-4">
+    <label for="calcium">カルシウム</label><br />
+    <%= f.text_field :calcium, class: "pl-2", id: "calcium" %>
+  </div>
+
+  <div class="field mt-4">
+    <label for="magnesium">マグネシウム</label><br />
+    <%= f.text_field :magnesium, class: "pl-2", id: "magnesium" %>
+  </div>
+
+  <div class="field mt-4">
+    <label for="b_carotene">β-カロテン</label><br />
+    <%= f.text_field :b_carotene, class: "pl-2", id: "b_carotene" %>
+  </div>
+
+  <div class="field mt-4">
+    <label for="vitaminc">ビタミンC</label><br />
+    <%= f.text_field :vitaminc, class: "pl-2", id: "vitaminc" %>
+  </div>
+
+  <div class="field mt-4">
+    <label for="liter">水分カテゴリーの重さ</label><br />
+    <%= f.text_field :liter, class: "pl-2", id: "liter" %>
+  </div>
+
+  <div class="field mt-4">
+    <label for="gram">食材の重さ</label><br />
+    <%= f.text_field :gram, class: "pl-2", id: "gram" %>
+  </div>
+
+  <div class="field mt-4">
+    <label for="unit">単位</label><br />
+    <%= f.select :unit, [["個", "個"], ["g", "g"], ["切れ", "切れ"], ["本", "本"], ["粒", "粒"], ["枚", "枚"], ["株", "株"], ["かけ", "かけ"], ["束", "束"], ["房", "房"], ["cc", "cc"]] , class: "pl-2 form-control", id: "unit" %>
+  </div>
+
+  <div class="field mt-4">
+    <label>画像</label><br />
+    <%= f.file_field :image, class: "pl-2" %>
+    </div>
+
+  <div class="actions">
+    <div class="mx-auto text-center">
+      <%= f.submit "投稿する", class: "btn btn-primary col-6 my-4 py-3" %>
+    </div>
+  </div>
+</div><!-- field -->
+<% end %>
+
+</div><!-- container -->
+</div><!-- bg -->
