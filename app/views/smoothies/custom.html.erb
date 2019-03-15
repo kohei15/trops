@@ -18,17 +18,17 @@
       <a aria-controls="tab_c" data-toggle="tab" href="#tab_c" role="tab">水分</a>
     </li>
     <li class="tab-other" role="presentation">
-      <a aria-controls="tab_c" data-toggle="tab" href="#tab_d" role="tab">その他</a>
+      <a aria-controls="tab_d" data-toggle="tab" href="#tab_d" role="tab">その他</a>
     </li>
   </ul>
   <div class="tab-content">
     <!-- タブ：フルーツ -->
     <div class="tab-pane" id="tab_a" role="tabpanel">
       <div class="food_content">
-        <div class="food_title">小松菜</div>
+        <div class="food_title">小松菜nanananana</div>
         <div class="food_image"><%= image_tag 'komatsuna.jpg' %></div>
-        <div class="food_gram">1個あたりの可食部50g</div>
-        <div class="food_kcal">50gあたり192kcal</div>
+        <div class="food_gram">可食部/50g</div>
+        <div class="food_kcal">50g/192kcal</div>
 	    <!--★スピナー★-->
 	    <div class="spinner_wrapper">
 	        <input class="food_quantity" type="number" name="quantity" value="0" min="0" max="10">
@@ -36,9 +36,45 @@
 	        <input type="button" name="spinner_up" class="spinner_down" value="" onclick="javascript:spinner('down');">
 	    </div>
       </div>
-    </div>
+      <div class="food_content">
+        <div class="food_title">小松菜</div>
+        <div class="food_image"><%= image_tag 'komatsuna.jpg' %></div>
+        <div class="food_gram">可食部/50g</div>
+        <div class="food_kcal">50g/192kcal</div>
+      <!--★スピナー★-->
+      <div class="spinner_wrapper">
+          <input class="food_quantity" type="number" name="quantity" value="0" min="0" max="10">
+          <input type="button" name="spinner_up" class="spinner_up" value="" onclick="javascript:spinner('up');">
+          <input type="button" name="spinner_up" class="spinner_down" value="" onclick="javascript:spinner('down');">
+      </div>
+      </div>
+      <div class="food_content">
+        <div class="food_title">小松菜</div>
+        <div class="food_image"><%= image_tag 'komatsuna.jpg' %></div>
+        <div class="food_gram">可食部/50g</div>
+        <div class="food_kcal">50g/192kcal</div>
+      <!--★スピナー★-->
+      <div class="spinner_wrapper">
+          <input class="food_quantity" type="number" name="quantity" value="0" min="0" max="10">
+          <input type="button" name="spinner_up" class="spinner_up" value="" onclick="javascript:spinner('up');">
+          <input type="button" name="spinner_up" class="spinner_down" value="" onclick="javascript:spinner('down');">
+      </div>
+      </div>
+      <div class="food_content">
+        <div class="food_title">小松菜</div>
+        <div class="food_image"><%= image_tag 'komatsuna.jpg' %></div>
+        <div class="food_gram">可食部/50g</div>
+        <div class="food_kcal">50g/192kcal</div>
+      <!--★スピナー★-->
+      <div class="spinner_wrapper">
+          <input class="food_quantity" type="number" name="quantity" value="0" min="0" max="10">
+          <input type="button" name="spinner_up" class="spinner_up" value="" onclick="javascript:spinner('up');">
+          <input type="button" name="spinner_up" class="spinner_down" value="" onclick="javascript:spinner('down');">
+      </div>
+      </div>
+    </div><!-- tab-pane -->
     <!-- タブ：野菜 -->
-    <div class="tab-pane" id="tab_a" role="tabpanel">
+    <div class="tab-pane" id="tab_b" role="tabpanel">
       <div class="food_content">
         <div class="food_title">小松菜</div>
         <div class="food_image"><%= image_tag 'komatsuna.jpg' %></div>
@@ -53,7 +89,7 @@
       </div>
     </div>
     <!-- タブ：水分 -->
-    <div class="tab-pane" id="tab_a" role="tabpanel">
+    <div class="tab-pane" id="tab_c" role="tabpanel">
       <div class="food_content">
         <div class="food_title">小松菜</div>
         <div class="food_image"><%= image_tag 'komatsuna.jpg' %></div>
@@ -68,12 +104,12 @@
       </div>
     </div>
     <!-- タブ：その他 -->
-    <div class="tab-pane" id="tab_a" role="tabpanel">
+    <div class="tab-pane" id="tab_d" role="tabpanel">
       <div class="food_content">
         <div class="food_title">小松菜</div>
         <div class="food_image"><%= image_tag 'komatsuna.jpg' %></div>
-        <div class="food_gram">1個あたりの可食部50g</div>
-        <div class="food_kcal">50gあたり192kcal</div>
+        <div class="food_gram">可食部:50g</div>
+        <div class="food_kcal">50g/192kcal</div>
 	    <!--★スピナー★-->
 	    <div class="spinner_wrapper">
 	        <input class="food_quantity" type="number" name="quantity" value="0" min="0" max="10">
@@ -83,7 +119,37 @@
       </div>
     </div>
   </div><!-- tab-content -->
-</div>
+
+  <div class="nutrients_wrapper  clearfix">
+    <div>
+      <div>栄養成分チャート</div>
+      <div><%= image_tag 'sample.png' %></div>
+      <div>1杯あたりの栄養素</div>
+      <ul>
+        <li>たんぱく質：100mg</li>
+        <li>カルシウム：100mg</li>
+        <li>カリウム：100mg</li>
+        <li>マグネシウム：100mg</li>
+        <li>ビタミンC：100mg</li>
+        <li>カロリー：100kcal</li>
+      </ul>
+      <div>1日当たりの目安摂取量（女性）</div>
+      <ul>
+        <li>たんぱく質：6,500mg</li>
+        <li>カルシウム：650mg</li>
+        <li>カリウム：2,000mg</li>
+        <li>マグネシウム：280mg</li>
+        <li>ビタミンC：100mg</li>
+        <li>カロリー：2,000kcal</li>
+      </ul>
+    </div>
+
+    <div class="text-center">
+      <%= link_to "投稿する", new_smoothy_path, class: "btn btn-primary my-2" %>
+    </div>
+
+    </div><!-- nutrients_wrapper -->
+</div><!-- custom-wrapper -->
 
 
 

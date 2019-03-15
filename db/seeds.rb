@@ -9,7 +9,7 @@
 
 # User.create!(id: "1", name: "われはかみなり", email: "admin@gmail.com", password: "admin", role: "1")
 
-(2..10).each do |i|
+(1..10).each do |i|
      User.create!(id: i, name: "ユーザー#{i}", email: "test#{i}@gmail.com", password: "testtest")
      10.times do |j|
      	Smoothie.create!(smoothie_name: "スムージー#{i}", comment: "コメントコメントコメントコメント", user_id: i)
@@ -19,9 +19,5 @@ end
 require 'csv'
 csv_data = CSV.read('db/seed.csv', headers: true)
 csv_data.each do |data|
-  Food.create!(data.to_hash)
+  Food.create!(food_name: data[0] ,food_image: data[1],	food_category: data[2].to_i, kcal: data[3], kalium: data[4], calcium: data[5], magnesium: data[6], protein: data[7], vitaminc: data[8], gram: data[9], liter: data[10], unit: data[11],)
 end
-
-Smoothie.create!(smoothie_name: "かぼちゃのスムージー", comment: "かぼちゃをたっぷり使いました", user_id: 2, image: "pumpkin.jpg")
-Smoothie.create!(smoothie_name: "グリーンスムージー", comment: "野菜をたくさん入れました", user_id: 2, image: "green.jpg")
-Smoothie.create!(smoothie_name: "ブルーベリーのスムージー", comment: "目が良くなりそうです", user_id: 2, image: "blueberry.jpg")

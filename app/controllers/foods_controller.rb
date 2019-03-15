@@ -1,6 +1,6 @@
 class FoodsController < ApplicationController
   def index
-    @foods = Food.all.includes(:food)
+    @foods = Food.all
   end
 
   def show
@@ -13,7 +13,7 @@ class FoodsController < ApplicationController
 
   def update
     @food = Food.find(params[:id])
-    @food.update
+    @food.update(food_paramas)
     redirect_to @food
   end
 
@@ -25,13 +25,13 @@ class FoodsController < ApplicationController
     food = Food.new(food_params)
     food.save
     flash[:notice] = "投稿しました。"
-    redirect_to food_path(foods.id)
+    redirect_to foods_path
   end
 
   def destroy
   end
 
   def food_params
-    params.require(:food).permit(:food_name, :image, :food_image, :food_category, :kcal, :kalium, :calcium, :magnesium, :b_carotene, :vitaminc, :liter, :gram, :unit)
+    params.require(:food).permit(:food_name, :image, :food_image, :food_category, :kcal, :kalium, :calcium, :magnesium, :protein, :vitaminc, :liter, :gram, :unit)
   end
 end

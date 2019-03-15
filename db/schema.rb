@@ -46,15 +46,15 @@ ActiveRecord::Schema.define(version: 2019_03_09_090940) do
   create_table "foods", force: :cascade do |t|
     t.string "food_name"
     t.string "food_image"
-    t.string "food_category", limit: 1, default: "0", null: false
+    t.integer "food_category"
     t.float "kcal"
     t.float "kalium"
     t.float "calcium"
     t.float "magnesium"
-    t.float "b_carotene"
+    t.float "protein"
     t.float "vitaminc"
     t.float "liter"
-    t.integer "gram"
+    t.float "gram"
     t.string "unit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
