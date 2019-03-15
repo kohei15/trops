@@ -5,11 +5,9 @@
 	<table class="table table-hover table-inverse">
 	  <thead>
 	  	<tr>
-	  	  <th></th>
+	  	  <th>Image</th>
 	  	  <th>Title</th>
-	  	  <th>Opinion</th>
-	  	  <th colspan="3"></th>
-	  	</tr>
+	  	  </tr>
 	  </thead>
 	  <tbody>
 	  	<% @foods.each do |food| %>
@@ -20,8 +18,7 @@
 	  	  	<% end %>
 	  	  </td>
 	  	  <td><%= link_to food.food_name, food_path(food.id) %></td>
-	  	  <td><%= food.body %></td>
-	  	</tr>
+	  	  </tr>
 	  </tbody>
 	  <% end %>
 	</table>

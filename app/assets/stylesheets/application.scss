@@ -169,6 +169,9 @@ textarea {
 .tab-fruits {
 	border: 1px solid #e3d395;
 }
+.tab-content > .active {
+    float: left;
+}
 .tab-vegetables {
 	border: 1px solid #e3d395;
 }
@@ -198,8 +201,12 @@ textarea {
 .food_content {
 	background-color: #FFF;
     padding: 1rem;
+    // width: 40%;
     max-width: 300px;
     border-radius: 20px;
+}
+.food_content:nth-child(n + 2) {
+	margin-top: 1rem;
 }
 .food_image {
 	max-width: 80%;
@@ -242,6 +249,18 @@ input.spinner_down {
     background-size:cover;
 }
 
+.nutrients_wrapper {
+	margin: auto;
+    background-color: #EEEBE9;
+    padding: 1rem;
+    border-radius: 20px;
+	width: 300px;
+    max-width: 300px;
+    transition: .3s ease-in-out;
+}
+.nutrients_wrapper img {
+	width: 100%;
+}
 
 
 /*レスポンシブCSS*/
