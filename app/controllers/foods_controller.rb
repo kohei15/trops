@@ -14,7 +14,8 @@ class FoodsController < ApplicationController
   def update
     @food = Food.find(params[:id])
     @food.update(food_paramas)
-    redirect_to @food
+    flash[:notice] = "更新しました。"
+    redirect_to foods_path
   end
 
   def new

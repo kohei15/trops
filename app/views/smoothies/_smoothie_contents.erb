@@ -1,7 +1,7 @@
 <div class="card-wrapper">
 <% @smoothies.each do |smoothie| %>
 	<div class="card text-center" style="width: 12rem;">
-	  <div class="card-body">
+	  <div class="card-body smoothie">
 	  	<h5 class="card-title"><%= link_to smoothie.smoothie_name, smoothy_path(smoothie.id) %></h5>
 	  	<% if smoothie.image.attached? %>
 	  		<%= link_to smoothy_path(smoothie.id) do %>

@@ -5,7 +5,18 @@
 <%= render 'layouts/loginstatus' %>
 
 <h2 class="index-h2">みんなのスムージー</h2>
-<%= render 'smoothies/smoothie_contents' %>
+<div id="smoothies">
+	<div class="page">
+		<%= render :partial => "smoothie_contents" %>
+	</div>
+</div>
+
+<%= paginate @smoothies %>
+<div class="page-load-status" style="display:none;">
+	<div class="infinite-scroll-request loading mx-auto"><%= image_tag 'loading.gif' %></div>
+    <p class="infinite-scroll-last">これ以上は記事がありません</p>
+    <p class="infinite-scroll-error">読み込むページがありません</p>
+</div>
 
 </div><!-- container -->
 </div><!-- bg -->
