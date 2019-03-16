@@ -24,100 +24,24 @@
   <div class="tab-content">
     <!-- タブ：フルーツ -->
     <div class="tab-pane" id="tab_a" role="tabpanel">
-      <div class="food_content">
-        <div class="food_title">小松菜nanananana</div>
-        <div class="food_image"><%= image_tag 'komatsuna.jpg' %></div>
-        <div class="food_gram">可食部/50g</div>
-        <div class="food_kcal">50g/192kcal</div>
-	    <!--★スピナー★-->
-	    <div class="spinner_wrapper">
-	        <input class="food_quantity" type="number" name="quantity" value="0" min="0" max="10">
-	        <input type="button" name="spinner_up" class="spinner_up" value="" onclick="javascript:spinner('up');">
-	        <input type="button" name="spinner_up" class="spinner_down" value="" onclick="javascript:spinner('down');">
-	    </div>
-      </div>
-      <div class="food_content">
-        <div class="food_title">小松菜</div>
-        <div class="food_image"><%= image_tag 'komatsuna.jpg' %></div>
-        <div class="food_gram">可食部/50g</div>
-        <div class="food_kcal">50g/192kcal</div>
-      <!--★スピナー★-->
-      <div class="spinner_wrapper">
-          <input class="food_quantity" type="number" name="quantity" value="0" min="0" max="10">
-          <input type="button" name="spinner_up" class="spinner_up" value="" onclick="javascript:spinner('up');">
-          <input type="button" name="spinner_up" class="spinner_down" value="" onclick="javascript:spinner('down');">
-      </div>
-      </div>
-      <div class="food_content">
-        <div class="food_title">小松菜</div>
-        <div class="food_image"><%= image_tag 'komatsuna.jpg' %></div>
-        <div class="food_gram">可食部/50g</div>
-        <div class="food_kcal">50g/192kcal</div>
-      <!--★スピナー★-->
-      <div class="spinner_wrapper">
-          <input class="food_quantity" type="number" name="quantity" value="0" min="0" max="10">
-          <input type="button" name="spinner_up" class="spinner_up" value="" onclick="javascript:spinner('up');">
-          <input type="button" name="spinner_up" class="spinner_down" value="" onclick="javascript:spinner('down');">
-      </div>
-      </div>
-      <div class="food_content">
-        <div class="food_title">小松菜</div>
-        <div class="food_image"><%= image_tag 'komatsuna.jpg' %></div>
-        <div class="food_gram">可食部/50g</div>
-        <div class="food_kcal">50g/192kcal</div>
-      <!--★スピナー★-->
-      <div class="spinner_wrapper">
-          <input class="food_quantity" type="number" name="quantity" value="0" min="0" max="10">
-          <input type="button" name="spinner_up" class="spinner_up" value="" onclick="javascript:spinner('up');">
-          <input type="button" name="spinner_up" class="spinner_down" value="" onclick="javascript:spinner('down');">
-      </div>
-      </div>
-    </div><!-- tab-pane -->
+      <%= render 'food_contents', foods:@fruit %>
+    </div>
+
     <!-- タブ：野菜 -->
     <div class="tab-pane" id="tab_b" role="tabpanel">
-      <div class="food_content">
-        <div class="food_title">小松菜</div>
-        <div class="food_image"><%= image_tag 'komatsuna.jpg' %></div>
-        <div class="food_gram">1個あたりの可食部50g</div>
-        <div class="food_kcal">50gあたり192kcal</div>
-	    <!--★スピナー★-->
-	    <div class="spinner_wrapper">
-	        <input class="food_quantity" type="number" name="quantity" value="0" min="0" max="10">
-	        <input type="button" name="spinner_up" class="spinner_up" value="" onclick="javascript:spinner('up');">
-	        <input type="button" name="spinner_up" class="spinner_down" value="" onclick="javascript:spinner('down');">
-	    </div>
-      </div>
+      <%= render 'food_contents', foods:@vegetable %>
     </div>
+
     <!-- タブ：水分 -->
     <div class="tab-pane" id="tab_c" role="tabpanel">
-      <div class="food_content">
-        <div class="food_title">小松菜</div>
-        <div class="food_image"><%= image_tag 'komatsuna.jpg' %></div>
-        <div class="food_gram">1個あたりの可食部50g</div>
-        <div class="food_kcal">50gあたり192kcal</div>
-	    <!--★スピナー★-->
-	    <div class="spinner_wrapper">
-	        <input class="food_quantity" type="number" name="quantity" value="0" min="0" max="10">
-	        <input type="button" name="spinner_up" class="spinner_up" value="" onclick="javascript:spinner('up');">
-	        <input type="button" name="spinner_up" class="spinner_down" value="" onclick="javascript:spinner('down');">
-	    </div>
-      </div>
+      <%= render 'food_contents', foods:@liquid %>
     </div>
+
     <!-- タブ：その他 -->
     <div class="tab-pane" id="tab_d" role="tabpanel">
-      <div class="food_content">
-        <div class="food_title">小松菜</div>
-        <div class="food_image"><%= image_tag 'komatsuna.jpg' %></div>
-        <div class="food_gram">可食部:50g</div>
-        <div class="food_kcal">50g/192kcal</div>
-	    <!--★スピナー★-->
-	    <div class="spinner_wrapper">
-	        <input class="food_quantity" type="number" name="quantity" value="0" min="0" max="10">
-	        <input type="button" name="spinner_up" class="spinner_up" value="" onclick="javascript:spinner('up');">
-	        <input type="button" name="spinner_up" class="spinner_down" value="" onclick="javascript:spinner('down');">
-	    </div>
-      </div>
+      <%= render 'food_contents', foods:@other %>
     </div>
+
   </div><!-- tab-content -->
 
   <div class="nutrients_wrapper  clearfix">

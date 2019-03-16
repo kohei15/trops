@@ -13,6 +13,7 @@ class CreateFoods < ActiveRecord::Migration[5.2]
       t.float :liter
       t.float :gram
       t.string :unit
+      t.integer :user_id
 
       t.timestamps
     end

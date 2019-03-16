@@ -39,7 +39,10 @@ class SmoothiesController < ApplicationController
   end
 
   def custom
-    @smoothie = Smoothie.new
+    @fruit = Food.where(food_category: 0)
+    @vegetable = Food.where(food_category: 1)
+    @liquid = Food.where(food_category: 2)
+    @other = Food.where(food_category: 3)
   end
 
   private

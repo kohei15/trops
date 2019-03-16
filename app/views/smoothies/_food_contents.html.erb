@@ -1,0 +1,21 @@
+<% foods.each do |food| %>
+  <div class="food_content text-center">
+    <div class="food_title"><%= food.food_name %></div>
+    <div class="food_image">
+      <% if food.image.attached? %>
+        <%= image_tag food.image %>
+      <% else %>
+        <%= image_tag 'no_image.jpg' %>
+      <% end %>
+    </div><!-- food_image -->
+
+    <div class="food_gram">可食部/<%= food.gram %>g</div>
+    <div class="food_kcal">100g/<%= food.kcal %>kcal</div>
+    <!--★スピナー★-->
+    <div class="spinner_wrapper">
+      <input class="food_quantity" type="number" name="quantity" value="0" min="0" max="10">
+      <input type="button" name="spinner_up" class="spinner_up" value="" onclick="javascript:spinner('up');">
+      <input type="button" name="spinner_up" class="spinner_down" value="" onclick="javascript:spinner('down');">
+    </div><!-- spinner_wrapper -->
+  </div><!-- food_content -->
+<% end %>

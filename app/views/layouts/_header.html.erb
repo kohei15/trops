@@ -33,14 +33,22 @@
           <a class="nav-link" href="#">はじめての方へ</a>
         </li>
         <li class="nav-item">
-          <%= link_to "カスタマイズする", custom_path, class: "nav-link" %>
+          <%= link_to "カスタマイズ", custom_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "スムージー一覧", smoothies_path, class: "nav-link" %>
         </li>
+        <!-- 以下は管理者のみ表示 -->
+      <% if user_signed_in? %>
+        <% if current_user.id == 1 %>
         <li class="nav-item">
-          <%= link_to "食材一覧（管理者）", foods_path, class: "nav-link" %>
+          <%= link_to "食材一覧", foods_path, class: "nav-link" %>
         </li>
+        <li class="nav-item">
+          <%= link_to "食材投稿", new_food_path, class: "nav-link" %>
+        </li>
+        <% end %>
+      <% end %>
         <!-- SPのみ表示 -->
           <div class="invisible-pc">
             <li class="nav-item">

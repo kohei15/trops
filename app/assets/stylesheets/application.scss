@@ -73,7 +73,10 @@ header {
     border-top: solid 1px #d4d4c0;
     overflow: hidden;
 }
-
+.message_notice {
+	max-width: 1080px;
+	margin: 0 auto;
+}
 
 
 // ログイン・会員登録画面
