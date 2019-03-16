@@ -3,7 +3,7 @@ class SmoothiesController < ApplicationController
   end
 
   def index
-    @smoothies = Smoothie.all.order(created_at: "desc").includes(:user)
+    @smoothies = Smoothie.page(params[:page]).per(30).reverse_order.includes(:user)
   end
 
   def show

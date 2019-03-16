@@ -10,14 +10,16 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
 //= require rails-ujs
+//= require jquery
+//= require jquery3
+//= require jquery_ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-//= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require infinite-scroll.pkgd.min
 
 function spinner(counter){
     var step = 0.25;
@@ -34,3 +36,16 @@ function spinner(counter){
 
     $(".food_quantity").val(food_quantity);
 }
+
+$(document).on('turbolinks:load', function() {
+    $('#smoothies').infiniteScroll({
+  // options
+  path: '.pagination__next',
+  append: '.page',
+  history: true,
+  prefill: true,
+  hideNav: '.pagination__next',
+  status: '.page-load-status',
+    });
+    console.log("init");
+ });

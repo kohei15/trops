@@ -1,3 +1,74 @@
-// Place all the styles related to the Smoothies controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// スムージー一覧ページ
+.card-wrapper {
+	display: grid;
+	margin-top: 1rem;
+    /* grid-auto-rows: auto; */
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 200px);
+    grid-row-gap: 1rem;
+    grid-column-gap: 0.5rem;
+}
+.card {
+	border-radius: 10px;
+}
+.card-title {
+    font-size: 14px;
+}
+.card-body img {
+	width: 100%;
+}
+.favorite img {
+	width: auto;
+}
+.card-date {
+	font-size: 14px;
+	margin-top: 1rem
+}
+.index-h2 {
+	background: #dfefff;
+	box-shadow: 0px 0px 0px 5px #dfefff;
+	border: dashed 2px white;
+	padding: 0.2em 0.5em;
+}
+
+
+.pagination {
+	display: none;
+}
+span.page {
+	display: none;
+}
+
+// ローディング画像のループ
+.loading {
+width: 50px;
+height: 50px;
+margin-top: 30px;
+background: #f6f1ea;
+    -webkit-animation: spin 1.5s linear infinite;
+    -moz-animation: spin 1.5s linear infinite;
+    -ms-animation: spin 1.5s linear infinite;
+    -o-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+}
+
+@-webkit-keyframes spin {
+	0% {-webkit-transform: rotate(0deg);}
+	100% {-webkit-transform: rotate(360deg);}
+}
+@-moz-keyframes spin {
+	0% {-moz-transform: rotate(0deg);}
+	100% {-moz-transform: rotate(360deg);}
+}
+@-ms-keyframes spin {
+	0% {-ms-transform: rotate(0deg);}
+	100% {-ms-transform: rotate(360deg);}
+}
+@-o-keyframes spin {
+	0% {-o-transform: rotate(0deg);}
+	100% {-o-transform: rotate(360deg);}
+}
+@keyframes spin {
+	0% {transform: rotate(0deg);}
+	100% {transform: rotate(360deg);}
+}
