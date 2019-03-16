@@ -1,14 +1,32 @@
 class FoodsController < ApplicationController
   def index
-    @foods = Food.all
+    if user_signed_in?
+      if current_user.id == 1
+        @foods = Food.all
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   def show
-    @food = Food.find(params[:id])
+    if user_signed_in?
+      if current_user.id == 1
+        @food = Food.find(params[:id])
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   def edit
-    @food = Food.find(params[:id])
+    if user_signed_in?
+      if current_user.id == 1
+        @food = Food.find(params[:id])
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   def update
@@ -19,18 +37,21 @@ class FoodsController < ApplicationController
   end
 
   def new
-    @food = Food.new
+    if user_signed_in?
+      if current_user.id == 1
+        @food = Food.new
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   def create
     food = Food.new(food_params)
-    if food.user_id = user.id(1)
+    food.user_id = 1
         food.save
         flash[:notice] = "投稿しました。"
-        redirect_to foods_path
-    else
-      render :new
-    end
+        redirect_to food_path(food.id)
   end
 
   def destroy
@@ -38,6 +59,6 @@ class FoodsController < ApplicationController
 
   private
   def food_params
-    params.require(:food).permit(:food_name, :image, :food_image, :food_category, :kcal, :kalium, :calcium, :magnesium, :protein, :vitaminc, :liter, :gram, :unit)
+    params.require(:food).permit(:food_name, :image, :food_image, :food_category, :kcal, :kalium, :calcium, :magnesium, :protein, :vitaminc, :liter, :gram, :unit, :user_id)
   end
 end

@@ -7,19 +7,30 @@
 	  	<tr>
 	  	  <th>Image</th>
 	  	  <th>Title</th>
-	  	  </tr>
+	  	  <th>Edit</th>
+	  	  <th>Delete</th>
+	  	</tr>
 	  </thead>
 	  <tbody>
 	  	<% @foods.each do |food| %>
 	  	<tr>
 	  	  <td>
-	  	  	<%= link_to food_path(food.id) do %>
-	  	  	<%= image_tag 'heart_off.png', size: "50x50" %>
-	  	  	<% end %>
+	   	<% if food.image.attached? %>
+	  		<%= link_to food_path(food.id) do %>
+	  	  	<%= image_tag food.image, size: "100x100" %>
+	  		<% end %>
+	  	<% else %>
+	  		<%= link_to food_path(food.id) do %>
+	  		<%= image_tag 'no_image.jpg', size: "100x100" %>
+	  		<% end %>
+	  	<% end %>
 	  	  </td>
 	  	  <td><%= link_to food.food_name, food_path(food.id) %></td>
-	  	  </tr>
-	  </tbody>
+	  	  <td><%= link_to "編集する", edit_food_path(food.id) %></td>
+	  	  <td><%= link_to "削除する", food, method: :delete,
+                                  data: { confirm: "You sure?" } %></td>
+	  	</tr>
+	  	</tbody>
 	  <% end %>
 	</table>
 </div><!-- container -->
