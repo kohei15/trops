@@ -72,3 +72,196 @@ background: #f6f1ea;
 	0% {transform: rotate(0deg);}
 	100% {transform: rotate(360deg);}
 }
+
+
+
+// カスタマイズページ
+/*タブ切り替え全体のスタイル*/
+.nav-tabs {
+	width: 100%;
+	display: flex;
+}
+.nav-tabs li {
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+	width: calc(100%/4);
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+.nav-tabs li a {
+	display: inline-block;
+	width: 100%;
+	color: #696059;
+	text-decoration: none;
+}
+.nav-tabs li:hover {
+	opacity: 0.75;
+}
+.tab-fruits {
+	border: 1px solid #e3d395;
+}
+.tab-content > .active {
+    float: left;
+}
+.tab-vegetables {
+	border: 1px solid #e3d395;
+}
+.tab-liquid {
+	border: 1px solid #e3d395;
+}
+.tab-other {
+	border: 1px solid #e3d395;
+}
+.tab-fruits .active {
+	background-color: #F78282;
+	color: #fff;
+}
+.tab-vegetables .active {
+	background-color: #32A86C;
+	color: #fff;
+}
+.tab-liquid .active {
+	background-color: #5ab4bd;
+	color: #fff;
+}
+.tab-other .active {
+	background-color: #e3d395;
+	color: #fff;
+}
+
+.food_content {
+	background-color: #FFF;
+    padding: 1rem;
+    // width: 40%;
+    max-width: 300px;
+    border-radius: 20px;
+}
+.food_content:nth-child(n + 2) {
+	margin-top: 1rem;
+}
+.food_image {
+	max-width: 80%;
+	margin: 0 auto;
+	text-align: center;
+}
+.food_image img {
+	width: 100%;
+}
+
+
+// スピナー
+.spinner_wrapper {
+    display: flex;
+    width: 200px;
+    padding-left: 5px;
+    padding-top: 8px;
+    margin: 0 auto;
+}
+input.food_quantity {
+    width: 60px;
+    height: 34px;
+    float: left;
+    margin: 0 0.1rem;
+    text-align: right;
+    padding: 0;
+}
+input.spinner_up {
+    margin: 0 0.5rem;
+    border: 0px;
+    width: 30px;
+    height: 30px;
+    background: url("plus.png") no-repeat;
+    background-size: cover;
+}
+input.spinner_down {
+	margin: 0 0.5rem;
+    border: 0px;
+    width: 30px;
+    height: 30px;
+    background: url("minus.png") no-repeat;
+    background-size: cover;
+}
+
+
+
+.nutrients_wrapper {
+	margin: auto;
+    width: 100%;
+    max-width: 400px;
+    transition: .3s ease-in-out;
+}
+.nutrients_wrapper img {
+	width: 100%;
+}
+.nutrients_wrapper ul {
+	list-style-type: none;
+}
+.nutrients_contents {
+	padding: 1rem;
+	background-color: #EEEBE9;
+	border-radius: 20px;
+}
+
+
+// レーダーチャート
+#myChart {
+	width: 100%;
+	height: 100%;
+}
+
+
+
+/*レスポンシブCSS*/
+@media screen and (max-width:991px) {
+	.food_content {
+		background-color: #FFF;
+	    padding: 0.5rem;
+	    width: 10rem;
+	    border-radius: 20px;
+	}
+	.food_content:nth-child(n + 2) {
+		margin-top: 1rem;
+	}
+	.food_image {
+		max-width: 80%;
+		margin: 0 auto;
+		text-align: center;
+	}
+	.food_image img {
+		width: 100%;
+	}
+
+	// スピナー
+	.spinner_wrapper {
+		display: flex;
+	    width: 8rem;
+	    margin: 0.5rem auto;
+	    padding: 0;
+	}
+	input.food_quantity {
+	    width: 3rem;
+	    height: 1em;
+	    float: left;
+	    margin: 0;
+	    padding: 0;
+	    text-align: right;
+	}
+	input.spinner_up {
+	    margin: 0 0.3rem;
+	    border: 0px;
+	    width: 1.1rem;
+	    height: 1.1rem;
+	    background: url("plus.png") no-repeat;
+	    background-size: cover;
+	}
+	input.spinner_down {
+		margin: 0 0.3rem;
+	    border: 0px;
+	    width: 1.1rem;
+	    height: 1.1rem;
+	    background: url("minus.png") no-repeat;
+	    background-size:cover;
+	}
+}

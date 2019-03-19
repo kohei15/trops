@@ -45,9 +45,11 @@
   </div><!-- tab-content -->
 
   <div class="nutrients_wrapper  clearfix">
-    <div>
-      <div>栄養成分チャート</div>
-      <div><%= image_tag 'sample.png' %></div>
+    <div class="nutrients_contents">
+      <!-- チャート描画キャンバス -->
+      <div><canvas id="myChart" width="350px" height="350px">></canvas></div>
+
+
       <div>1杯あたりの栄養素</div>
       <ul>
         <li>たんぱく質：100mg</li>
@@ -66,38 +68,18 @@
         <li>ビタミンC：100mg</li>
         <li>カロリー：2,000kcal</li>
       </ul>
-    </div>
-
     <div class="text-center">
       <%= link_to "投稿する", new_smoothy_path, class: "btn btn-primary my-2" %>
     </div>
+    </div><!-- nutrients_contents -->
 
-    </div><!-- nutrients_wrapper -->
+  </div><!-- nutrients_wrapper -->
 </div><!-- custom-wrapper -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </div><!-- container -->
 </div><!-- bg -->
+
+<div id="app">
+<p>{{message}}</p>
+</div>

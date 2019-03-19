@@ -51,7 +51,7 @@ class FoodsController < ApplicationController
     food.user_id = 1
         food.save
         flash[:notice] = "投稿しました。"
-        redirect_to food_path(food.id)
+        redirect_to foods_path
   end
 
   def destroy

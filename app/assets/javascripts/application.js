@@ -21,12 +21,14 @@
 //= require bootstrap-sprockets
 //= require infinite-scroll.pkgd.min
 
-function spinner(counter){
+
+// 数量入力スピナー
+function spinner(counter, i){
     var step = 0.25;
     var min = 0.0;
     var max = 10.0;
 
-    var food_quantity = $(".food_quantity").val();
+    var food_quantity = $(".food_quantity_" + i).val();
     var food_quantity = parseFloat(food_quantity);
       if (counter == 'up') { food_quantity += step; };
       if (counter == 'down') { food_quantity -= step; };
@@ -34,9 +36,14 @@ function spinner(counter){
     if ( food_quantity < min ) { food_quantity = min; };
     if ( max < food_quantity ) { food_quantity = max; };
 
-    $(".food_quantity").val(food_quantity);
+    $(".food_quantity_" + i).val(food_quantity);
 }
 
+
+
+
+
+// 無限スクロール
 $(document).on('turbolinks:load', function() {
     $('#smoothies').infiniteScroll({
   // options
@@ -49,3 +56,29 @@ $(document).on('turbolinks:load', function() {
     });
     console.log("init");
  });
+
+
+
+function keisan(i){
+
+  // 設定開始
+
+  // 商品1
+  var price1 = $(".food_quantity_" + i).options[document.form1.goods1.selectedIndex].value;
+
+  // 合計を計算
+  var total = parseInt(price1) + parseInt(price2) + parseInt(price3);
+
+  // 設定終了
+
+
+  document.form1.field_total.value = total; // 合計を表示
+
+}
+
+
+
+
+
+
+
