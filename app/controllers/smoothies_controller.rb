@@ -39,10 +39,36 @@ class SmoothiesController < ApplicationController
   end
 
   def custom
+    # 部分テンプレート参照用
     @fruit = Food.where(food_category: 0)
     @vegetable = Food.where(food_category: 1)
     @liquid = Food.where(food_category: 2)
     @other = Food.where(food_category: 3)
+
+
+    # 栄養素の計算
+    foods = Food.all
+
+      # 初期設定の定義
+      kcal = 0
+      kalium = 0
+      calcium = 0
+      magnesium = 0
+      protein = 0
+      vitaminc = 0
+      gram = 0
+
+      # if quantity > 0 #数量が0よりも大きい食材だけを計算に入れたい
+        # foods.each do |i|
+          # kcal_sum += i.kcal
+          # kalium_sum += i.kalium
+          # calcium_sum += i.calcium
+          # magnesium_sum += i.magnesium
+          # protein_sum += i.protein
+          # vitaminc_sum += i.vitaminc
+          # gram_sum += i.gram
+        # end
+      # end
   end
 
   private

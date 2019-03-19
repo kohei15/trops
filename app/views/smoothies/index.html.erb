@@ -7,13 +7,20 @@
 <h2 class="index-h2">みんなのスムージー</h2>
 <div id="smoothies">
 	<div class="page">
-		<%= render :partial => "smoothie_contents" %>
+		<%= render 'smoothie_contents' %>
 	</div>
 </div>
 
 <%= paginate @smoothies %>
 <div class="page-load-status" style="display:none;">
 	<div class="infinite-scroll-request loading mx-auto"><%= image_tag 'loading.gif' %></div>
+	<div class="infinite-scroll-request my-3">
+		<div class="d-flex justify-content-center">
+		  <div class="spinner-border" role="status">
+		  	<span class="sr-only">Loading...</span>
+		  </div>
+		</div>
+	</div>
     <p class="infinite-scroll-last">これ以上は記事がありません</p>
     <p class="infinite-scroll-error">読み込むページがありません</p>
 </div>

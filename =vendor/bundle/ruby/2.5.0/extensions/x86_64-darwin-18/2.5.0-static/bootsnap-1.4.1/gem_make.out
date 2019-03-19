@@ -1,0 +1,15 @@
+current directory: /Users/kinoshitakohei/Desktop/work/vagrant/trops/=vendor/bundle/ruby/2.5.0/gems/bootsnap-1.4.1/ext/bootsnap
+/Users/kinoshitakohei/.rbenv/versions/2.5.3/bin/ruby -r ./siteconf20190319-57826-1w1ff8p.rb extconf.rb
+creating Makefile
+
+current directory: /Users/kinoshitakohei/Desktop/work/vagrant/trops/=vendor/bundle/ruby/2.5.0/gems/bootsnap-1.4.1/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /Users/kinoshitakohei/Desktop/work/vagrant/trops/=vendor/bundle/ruby/2.5.0/gems/bootsnap-1.4.1/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/kinoshitakohei/Desktop/work/vagrant/trops/=vendor/bundle/ruby/2.5.0/gems/bootsnap-1.4.1/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20190319-57826-1si6sua/bootsnap

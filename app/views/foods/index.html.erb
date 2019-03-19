@@ -28,7 +28,7 @@
 	  	  <td><%= link_to food.food_name, food_path(food.id) %></td>
 	  	  <td><%= link_to "編集する", edit_food_path(food.id) %></td>
 	  	  <td><%= link_to "削除する", food, method: :delete,
-                                  data: { confirm: "You sure?" } %></td>
+                                  data: { confirm: "本当に削除しますか?" } %></td>
 	  	</tr>
 	  	</tbody>
 	  <% end %>

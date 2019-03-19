@@ -7,6 +7,7 @@ ruby '2.5.3'
 gem 'rails', '~> 5.2.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.3.6'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -31,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
+gem 'foreman'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -101,3 +103,9 @@ gem 'enum_help'
 
 # rails-i18n
 gem 'rails-i18n'
+
+# chart.js
+gem 'chart-js-rails'
+
+# Vue.js
+gem 'webpacker', github: 'rails/webpacker'
