@@ -92,7 +92,7 @@ var config = {
       backgroundColor: color(colorSet.red).alpha(0.5).rgbString(),
       borderColor: colorSet.red,
       pointBackgroundColor: colorSet.red,
-      data: [<%= @test_data %>, <%= @datas %>, <%= @datas %>, <%= @datas %>, <%= @datas %>]
+      data: [100, 100, 100, 100, 100]
     },]
   },
   options: {

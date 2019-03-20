@@ -109,3 +109,5 @@ gem 'chart-js-rails'
 
 # Vue.js
 gem 'webpacker', github: 'rails/webpacker'
+
+
