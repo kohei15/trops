@@ -59,26 +59,75 @@ $(document).on('turbolinks:load', function() {
 
 
 
-function keisan(i){
+ // レーダーチャート
+$(document).ready(function () {
+// 変数の定義（自分で追加）
+// var protein =  ;
+// var calcium =  ;
+// var kalium =  ;
+// var magnesium =  ;
+// var vitaminc =  ;
 
-  // 設定開始
+// 色の設定
+var colorSet = {
+  red: 'rgb(255, 99, 132)',
+  orange: 'rgb(255, 159, 64)',
+  yellow: 'rgb(255, 205, 86)',
+  green: 'rgb(75, 192, 192)',
+  blue: 'rgb(54, 162, 235)',
+  purple: 'rgb(153, 102, 255)',
+  grey: 'rgb(201, 203, 207)'
+};
 
-  // 商品1
-  var price1 = $(".food_quantity_" + i).options[document.form1.goods1.selectedIndex].value;
+// 色のRGB変換
+var color = Chart.helpers.color;
 
-  // 合計を計算
-  var total = parseInt(price1) + parseInt(price2) + parseInt(price3);
+// チャートの初期設定
+var config = {
+  type: 'radar',
+  data: {
+    labels: ["たんぱく質", "カルシウム", "カリウム", "マグネシウム", "ビタミンC"],
+    datasets: [{
+      label: "１杯あたりの栄養素",
+      backgroundColor: color(colorSet.red).alpha(0.5).rgbString(),
+      borderColor: colorSet.red,
+      pointBackgroundColor: colorSet.red,
+      data: [<%= @test_data %>, <%= @datas %>, <%= @datas %>, <%= @datas %>, <%= @datas %>]
+    },]
+  },
+  options: {
+    animation:false,
+    showTooltips: false,
+    legend: { position: 'bottom' },
+    title: {
+      display: true,
+      fontSize:20,
+      fontColor:'#666',
+      text: '栄養成分チャート'
+    },
+    responsive: true,
+    scale: {
+      display: true,
+      pointLabels: {
+        fontSize: 15,
+        fontColor: colorSet.red
+      },
+      ticks: {
+        display: true,
+        fontSize: 12,
+        min: 0,
+        max: 100,
+        stepSize: 10,
+        beginAtZero: true
+      },
+      gridLines: {
+        display: true,
+        color: colorSet.grey
+      }
+    }
+  }
+};
 
-  // 設定終了
-
-
-  document.form1.field_total.value = total; // 合計を表示
-
-}
-
-
-
-
-
-
-
+// チャートの作成
+var myRadar = new Chart($("#myChart"), config);
+});
