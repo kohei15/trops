@@ -37,7 +37,10 @@ function spinner(counter, i){
     if ( max < food_quantity ) { food_quantity = max; };
 
     $(".food_quantity_" + i).val(food_quantity);
+
 }
+
+
 
 
 
@@ -82,6 +85,7 @@ var colorSet = {
 // 色のRGB変換
 var color = Chart.helpers.color;
 
+var eiyou_list = $("#myChart").attr("data-target").split(',')
 // チャートの初期設定
 var config = {
   type: 'radar',
@@ -92,7 +96,7 @@ var config = {
       backgroundColor: color(colorSet.red).alpha(0.5).rgbString(),
       borderColor: colorSet.red,
       pointBackgroundColor: colorSet.red,
-      data: [100, 100, 100, 100, 100]
+      data: eiyou_list
     },]
   },
   options: {

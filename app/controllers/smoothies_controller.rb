@@ -21,7 +21,7 @@ class SmoothiesController < ApplicationController
   end
 
   def new
-    @smoothie = Smoothie.new
+    @smoothie = Smoothie.new(smoothie_params)
   end
 
   def create
@@ -39,24 +39,26 @@ class SmoothiesController < ApplicationController
   end
 
   def custom
+    @smoothie = Smoothie.new
+    @smoothie_food = @smoothie.smoothie_foods.new
     # 部分テンプレート参照用
-    @fruit = Food.where(food_category: 0)
-    @vegetable = Food.where(food_category: 1)
-    @liquid = Food.where(food_category: 2)
-    @other = Food.where(food_category: 3)
+    @fruits = Food.where(food_category: 0)
+    @vegetables = Food.where(food_category: 1)
+    @liquids = Food.where(food_category: 2)
+    @others = Food.where(food_category: 3)
 
+    eiyou_hash = {protein: 0, calcium: 0, kalium: 0, magnesium: 0, vitaminc: 0, kcal: 0}
+    @eiyou_lists = [eiyou_hash, eiyou_hash, eiyou_hash, eiyou_hash, eiyou_hash, eiyou_hash]
+
+    food_num_list = Array.new(0, @fruits.count)
+    @food_num_lists = [Array.new(0, @fruits.count), 
+      Array.new(0, @vegetables.count),
+      Array.new(0, @liquids.count),
+      Array.new(0, @others.count), @others]
 
     # 栄養素の計算
     foods = Food.all
-
-      # 初期設定の定義
-      kcal = 0
-      kalium = 0
-      calcium = 0
-      magnesium = 0
-      protein = 0
-      vitaminc = 0
-      gram = 0
+    # render 'custom', formats: 'json', handlers: 'jbuilder'
 
       # if quantity > 0 #数量が0よりも大きい食材だけを計算に入れたい
         # foods.each do |i|
