@@ -12,7 +12,7 @@
     </div>
 
     <div class="food_gram">
-      可食部/
+      1<%= food.unit %>の可食部/
       <% if food.liter == nil%>
         <%= food.gram %>g
       <% else %>
@@ -32,17 +32,27 @@
     <% quan = 0  %>
     <!-- スピナー -->
     <div class="spinner_wrapper">
-      <input class="food_quantity food_quantity_<%= food.id %>" type="number" name="quantity" value="0" min="0" max="10">
+      <input class="food_quantity food_quantity_<%= food.id %>" type="number" name="quantity" value="0" min="0" max="10" data-protein="<%= food.protein %>" data-calcium="<%= food.calcium %>" data-kalium="<%= food.kalium %>" data-magnesium="<%= food.magnesium %>" data-vitaminc="<%= food.vitaminc %>" data-kcal="<%= food.kcal %>">
       <%= food.unit %> <!-- 食べ物の単位-->
       <input type="button" name="spinner_up" class="spinner_up" value="" onclick="javascript:spinner('up', <%= food.id %>);">
       <input type="button" name="spinner_up" class="spinner_down" value="" onclick="javascript:spinner('down', <%= food.id %>);">
     </div><!-- spinner_wrapper -->
-    <% eiyou_lists[num][:protein] += food.protein * quan %>
-    <% eiyou_lists[num][:calcium] += food.calcium * quan %>
-    <% eiyou_lists[num][:kalium] += food.kalium * quan %>
-    <% eiyou_lists[num][:magnesium] += food.magnesium * quan %>
-    <% eiyou_lists[num][:vitaminc] += food.vitaminc * quan %>
-    <% eiyou_lists[num][:kcal] += food.kcal * quan %>
+    <%# eiyou_lists[num][:protein] += food.protein * quan %>
+    <%# eiyou_lists[num][:calcium] += food.calcium * quan %>
+    <%# eiyou_lists[num][:kalium] += food.kalium * quan %>
+    <%# eiyou_lists[num][:magnesium] += food.magnesium * quan %>
+    <%# eiyou_lists[num][:kcal] += food.kcal * quan %>
+
+
+
+
+
+
+
+
+
+
+
 
   </div><!-- food_content -->
 <% end %>

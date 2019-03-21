@@ -39,38 +39,25 @@ class SmoothiesController < ApplicationController
   end
 
   def custom
+    # selectタグの受け渡し
     @smoothie = Smoothie.new
     @smoothie_food = @smoothie.smoothie_foods.new
+
     # 部分テンプレート参照用
     @fruits = Food.where(food_category: 0)
     @vegetables = Food.where(food_category: 1)
-    @liquids = Food.where(food_category: 2)
     @others = Food.where(food_category: 3)
 
+    # 栄養素の計算
     eiyou_hash = {protein: 0, calcium: 0, kalium: 0, magnesium: 0, vitaminc: 0, kcal: 0}
-    @eiyou_lists = [eiyou_hash, eiyou_hash, eiyou_hash, eiyou_hash, eiyou_hash, eiyou_hash]
+    @eiyou_lists = [eiyou_hash]
 
     food_num_list = Array.new(0, @fruits.count)
-    @food_num_lists = [Array.new(0, @fruits.count), 
+    @food_num_lists = [Array.new(0, @fruits.count),
       Array.new(0, @vegetables.count),
-      Array.new(0, @liquids.count),
       Array.new(0, @others.count), @others]
 
-    # 栄養素の計算
     foods = Food.all
-    # render 'custom', formats: 'json', handlers: 'jbuilder'
-
-      # if quantity > 0 #数量が0よりも大きい食材だけを計算に入れたい
-        # foods.each do |i|
-          # kcal_sum += i.kcal
-          # kalium_sum += i.kalium
-          # calcium_sum += i.calcium
-          # magnesium_sum += i.magnesium
-          # protein_sum += i.protein
-          # vitaminc_sum += i.vitaminc
-          # gram_sum += i.gram
-        # end
-      # end
   end
 
   private

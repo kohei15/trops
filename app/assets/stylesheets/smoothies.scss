@@ -83,7 +83,7 @@ background: #f6f1ea;
 }
 .nav-tabs li {
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-	width: calc(100%/4);
+	width: calc(100%/3);
     height: 50px;
     line-height: 50px;
     text-align: center;
@@ -218,7 +218,7 @@ input.spinner_down {
 	.food_content {
 		background-color: #FFF;
 	    padding: 0.5rem;
-	    width: 10rem;
+	    width: 12rem;
 	    border-radius: 20px;
 	}
 	.food_content:nth-child(n + 2) {
@@ -236,7 +236,7 @@ input.spinner_down {
 	// スピナー
 	.spinner_wrapper {
 		display: flex;
-	    width: 8rem;
+	    width: 10rem;
 	    margin: 0.5rem auto;
 	    padding: 0;
 	}
