@@ -13,11 +13,8 @@
     <li class="tab-vegetables" role="presentation">
       <a aria-controls="tab_b" data-toggle="tab" href="#tab_b" role="tab">野菜</a>
     </li>
-    <li class="tab-liquid" role="presentation">
-      <a aria-controls="tab_c" data-toggle="tab" href="#tab_c" role="tab">水分</a>
-    </li>
     <li class="tab-other" role="presentation">
-      <a aria-controls="tab_d" data-toggle="tab" href="#tab_d" role="tab">その他</a>
+      <a aria-controls="tab_d" data-toggle="tab" href="#tab_c" role="tab">その他</a>
     </li>
   </ul>
   <div class="tab-content">
@@ -35,41 +32,35 @@
         num: 1} %>
     </div>
 
-    <!-- タブ：水分 -->
-    <div class="tab-pane" id="tab_c" role="tabpanel">
-      <%= render partial: 'food_contents', locals:{eiyou_lists: @eiyou_lists,
-        foods: @liquids,
-        num: 2} %>
-    </div>
-
     <!-- タブ：その他 -->
-    <div class="tab-pane" id="tab_d" role="tabpanel">
+    <div class="tab-pane" id="tab_c" role="tabpanel">
       <%= render partial: 'food_contents', locals:{eiyou_lists: @eiyou_lists,
         foods: @others, num: 3} %>
     </div>
 
   </div><!-- tab-content -->
 
-  <% eiyou_sum_list = [@eiyou_lists.map{|eiyou_hash| eiyou_hash[:protein] }.sum,
+  <% eiyou_sum_list = [
+  @eiyou_lists.map{|eiyou_hash| eiyou_hash[:protein] }.sum,
   @eiyou_lists.map{|eiyou_hash| eiyou_hash[:calcium] }.sum,
   @eiyou_lists.map{|eiyou_hash| eiyou_hash[:kalium] }.sum,
   @eiyou_lists.map{|eiyou_hash| eiyou_hash[:magnesium] }.sum,
   @eiyou_lists.map{|eiyou_hash| eiyou_hash[:vitaminc] }.sum,
   @eiyou_lists.map{|eiyou_hash| eiyou_hash[:kcal] }.sum] %>
-  <% eiyou_sum_rate_list = eiyou_sum_list.map{|eiyou| eiyou / (eiyou_sum_list.sum) * 100} %>
+  <%# eiyou_sum_rate_list = eiyou_sum_list.map{|eiyou| eiyou / (eiyou_sum_list.sum) * 100} %>
   <div class="nutrients_wrapper  clearfix">
     <div class="nutrients_contents">
       <!-- チャート描画キャンバス -->
-      <div><canvas id="myChart" width="350px" height="350px" data-target="<%= eiyou_sum_rate_list.to_s.delete('[').delete(']') %>"></canvas></div>
+      <div><canvas id="myChart" width="350px" height="350px" data-target="<%#= eiyou_sum_rate_list.to_s.delete('[').delete(']') %>"></canvas></div>
 
       <div>1杯あたりの栄養素</div>
       <ul>
-        <li>たんぱく質：<%= eiyou_sum_list[0] %>mg</li>
-        <li>カルシウム：<%= eiyou_sum_list[1] %>mg</li>
-        <li>カリウム：<%= eiyou_sum_list[2] %>mg</li>
-        <li>マグネシウム：<%= eiyou_sum_list[3] %>mg</li>
-        <li>ビタミンC：<%= eiyou_sum_list[4] %>mg</li>
-        <li>カロリー：<%= eiyou_sum_list[5] %>kcal</li>
+        <li>たんぱく質：<span id="protein_sum"><%= eiyou_sum_list[0] %></span>mg</li>
+        <li>カルシウム：<span id="calcium_sum"><%= eiyou_sum_list[1] %></span>mg</li>
+        <li>カリウム：<span id="kalium_sum"><%= eiyou_sum_list[2] %></span>mg</li>
+        <li>マグネシウム：<span id="magnesium_sum"><%= eiyou_sum_list[3] %></span>mg</li>
+        <li>ビタミンC：<span id="vitaminc_sum"><%= eiyou_sum_list[4] %></span>mg</li>
+        <li>カロリー：<span id="kcal_sum"><%= eiyou_sum_list[5] %></span>kcal</li>
       </ul>
       <div>1日当たりの目安摂取量（女性）</div>
       <ul>
@@ -81,8 +72,13 @@
         <li>カロリー：2,000kcal</li>
       </ul>
     <div class="text-center">
-      <!-- ここをform_forに変えて、@smoothieのカラムにhidden_fieldで栄養それぞれ代入。-->
-      <%= link_to "投稿する", new_smoothy_path, class: "btn btn-primary my-2" %>
+      <!--
+      ここをform_forに変えて、@smoothieのカラムにhidden_fieldで栄養それぞれ代入。
+      <%= link_to "投稿する", new_smoothy_path, class: "btn btn-primary col-6 my-4 py-3" %>
+      -->
+      <%= form_for(@smoothie) do |f| %>
+        <%= f.submit "投稿する", class: "btn btn-primary col-6 my-4 py-3" %>
+      <% end %>
     </div>
     </div> <!-- nutrients_contents -->
 
