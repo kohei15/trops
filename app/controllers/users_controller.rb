@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@smoothies = Smoothie.all.order(created_at: "desc")
+		@smoothies = Smoothie.where(user_id: current_user).order(created_at: "desc")
 	end
 
 	def edit
@@ -30,6 +30,9 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
+	end
+
+	def admin
 	end
 
 	private

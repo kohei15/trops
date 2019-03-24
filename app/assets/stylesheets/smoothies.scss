@@ -77,6 +77,49 @@ background: #f6f1ea;
 
 // カスタマイズページ
 /*タブ切り替え全体のスタイル*/
+.hidden_box {
+    margin: 2em 0;/*前後の余白*/
+    padding: 0;
+}
+
+/*ボタン装飾*/
+.hidden_box label {
+    padding: 15px;
+    font-weight: bold;
+    border: solid 2px black;
+    cursor :pointer;
+}
+
+/*ボタンホバー時*/
+.hidden_box label:hover {
+    background: #efefef;
+}
+
+/*チェックは見えなくする*/
+.hidden_box input {
+    display: none;
+}
+
+/*中身を非表示にしておく*/
+.hidden_box .hidden_show {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.8s;
+}
+
+/*クリックで中身表示*/
+.hidden_box input:checked ~ .hidden_show {
+    padding: 10px 0;
+    height: auto;
+    opacity: 1;
+}
+
+
+
+
+
 .nav-tabs {
 	width: 100%;
 	display: flex;
@@ -108,9 +151,6 @@ background: #f6f1ea;
 .tab-vegetables {
 	border: 1px solid #e3d395;
 }
-.tab-liquid {
-	border: 1px solid #e3d395;
-}
 .tab-other {
 	border: 1px solid #e3d395;
 }
@@ -122,10 +162,6 @@ background: #f6f1ea;
 	background-color: #32A86C;
 	color: #fff;
 }
-.tab-liquid .active {
-	background-color: #5ab4bd;
-	color: #fff;
-}
 .tab-other .active {
 	background-color: #e3d395;
 	color: #fff;
@@ -134,7 +170,6 @@ background: #f6f1ea;
 .food_content {
 	background-color: #FFF;
     padding: 1rem;
-    // width: 40%;
     max-width: 300px;
     border-radius: 20px;
 }

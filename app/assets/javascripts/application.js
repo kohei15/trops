@@ -81,6 +81,7 @@ function updateEiyouso() {
 }
 
 
+
 // 数量入力スピナー
 function spinner(counter, i){
   var step = 0.5;
@@ -99,6 +100,7 @@ function spinner(counter, i){
   $(".food_quantity_" + i).val(food_quantity);
   updateEiyouso();
 }
+
 
 
 // レーダーチャート
@@ -121,7 +123,7 @@ $(document).ready(function () {
   // 色のRGB変換
   var color = Chart.helpers.color;
 
-  var eiyou_list = $("#myChart").data("target").split(',')
+  var eiyou_list = $("#myChart").data("target")
   // チャートの初期設定
   var config = {
     type: 'radar',
@@ -136,7 +138,7 @@ $(document).ready(function () {
       },]
     },
     options: {
-      animation:false,
+      animation: { duration: 500 },
       showTooltips: false,
       legend: { position: 'bottom' },
       title: {
@@ -156,8 +158,8 @@ $(document).ready(function () {
           display: true,
           fontSize: 12,
           min: 0,
-          max: 100,
-          stepSize: 10,
+          max: 2000,
+          stepSize: 0,
           beginAtZero: true
         },
         gridLines: {
@@ -172,8 +174,10 @@ $(document).ready(function () {
   myRadar = new Chart($("#myChart"), config);
 });
 
+
+
 // 無限スクロール
-$('.page').on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function() {
   $('#smoothies').infiniteScroll({
     // options
     path: '.pagination__next',
@@ -182,5 +186,30 @@ $('.page').on('turbolinks:load', function() {
     prefill: true,
     hideNav: '.pagination__next',
     status: '.page-load-status',
+  });
+});
+
+
+
+// パララックス
+jQuery(function($){
+  var $window = $(window);
+
+  $('.content').each(function(index) {
+    var $self = $(this);
+    var offsetPositions = $self.offset();
+
+    $(window).scroll(function() {
+      if (($window.scrollTop() + $window.height()) > offsetPositions.top && ((offsetPositions.top + $self.height()) > $window.scrollTop())) {
+        var offsetY =  -(($window.scrollTop() - offsetPositions.top)/ 17);
+        var positions = '50%' + offsetY + 'px';
+        $self.css('backgroundPosition', positions);
+        $('.movingElement', $self).each(function(index) {
+          var $movingElement = $(this);
+          var yPos = -($window.scrollTop() / $movingElement.data('speed')) + $movingElement.data('offsety');
+          $movingElement.css('top', yPos);
+        });
+      }
+    });
   });
 });
