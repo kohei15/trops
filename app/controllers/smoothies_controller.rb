@@ -25,11 +25,12 @@ class SmoothiesController < ApplicationController
   end
 
   def create
-    smoothie = Smoothie.new(smoothie_params)
-    if smoothie.user_id = current_user.id
-        smoothie.save
+    binding.pry
+    @smoothie = Smoothie.new(smoothie_params)
+    if @smoothie.user_id = current_user.id
+        @smoothie.save
         flash[:notice] = "投稿しました。"
-        redirect_to smoothy_path(smoothie.id)
+        render :action => "new", :views => "smoothies/new"
     else
       render :new
     end
@@ -42,7 +43,7 @@ class SmoothiesController < ApplicationController
     @smoothie = Smoothie.new
     @smoothie_food = @smoothie.smoothie_foods.new
 
-    # 部分テンプレート参照用
+    # カテゴリごとに食材を抽出
     @fruits = Food.where(food_category: 0)
     @vegetables = Food.where(food_category: 1)
     @others = Food.where(food_category: 2)
