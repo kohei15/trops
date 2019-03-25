@@ -3,7 +3,7 @@ class Food < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  enum food_categories: {フルーツ:0,野菜:1,水分:2,その他:3}
+  enum food_category: {fruits: 0,vegetable:1,other:2}
 
   validates :food_name, presence: true, uniqueness: true
   validates :kcal, presence: true

@@ -15,7 +15,7 @@
 
   <div class="field mt-4">
     <label>食材のカテゴリー</label><br />
-    <%= f.select :food_category, Food.food_categories.keys.to_a %>
+    <%= f.select :food_category,  Food.food_categories.keys.map{ |key| [t(key), key] } %>
   </div>
 
   <div class="field mt-4">
@@ -46,11 +46,6 @@
   <div class="field mt-4">
     <label for="vitaminc">ビタミンC</label><br />
     <%= f.text_field :vitaminc, class: "pl-2 mr-2", id: "vitaminc" %>mg
-  </div>
-
-  <div class="field mt-4">
-    <label for="liter">水分カテゴリーの重さ</label><br />
-    <%= f.text_field :liter, class: "pl-2 mr-2", id: "liter" %>l
   </div>
 
   <div class="field mt-4">

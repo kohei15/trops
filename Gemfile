@@ -107,7 +107,4 @@ gem 'rails-i18n'
 # chart.js
 gem 'chart-js-rails'
 
-# Vue.js
-gem 'webpacker', github: 'rails/webpacker'
-
 

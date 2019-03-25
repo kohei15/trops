@@ -3,7 +3,7 @@ class SmoothiesController < ApplicationController
   end
 
   def index
-    @smoothies = Smoothie.page(params[:page]).per(30).reverse_order.includes(:user)
+    @smoothies = Smoothie.page(params[:page]).per(20).reverse_order.includes(:user)
   end
 
   def show
@@ -21,7 +21,7 @@ class SmoothiesController < ApplicationController
   end
 
   def new
-    @smoothie = Smoothie.new(smoothie_params)
+    @smoothie = Smoothie.new
   end
 
   def create
@@ -39,14 +39,13 @@ class SmoothiesController < ApplicationController
   end
 
   def custom
-    # selectタグの受け渡し
     @smoothie = Smoothie.new
     @smoothie_food = @smoothie.smoothie_foods.new
 
     # 部分テンプレート参照用
     @fruits = Food.where(food_category: 0)
     @vegetables = Food.where(food_category: 1)
-    @others = Food.where(food_category: 3)
+    @others = Food.where(food_category: 2)
 
     # 栄養素の計算
     eiyou_hash = {protein: 0, calcium: 0, kalium: 0, magnesium: 0, vitaminc: 0, kcal: 0}
