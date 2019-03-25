@@ -5,6 +5,7 @@
 <%= render 'layouts/loginstatus' %>
 <h2 class="index-h2">カスタマイズ</h2>
 
+<%= form_for(@smoothie) do |f| %>
 <div class="custom-wrapper">
   <ul class="nav nav-tabs my-3 mx-auto" role="tablist">
     <li class="tab-fruits" role="presentation">
@@ -17,6 +18,7 @@
       <a aria-controls="tab_d" data-toggle="tab" href="#tab_c" role="tab">その他</a>
     </li>
   </ul>
+
   <div class="tab-content">
     <!-- タブ：フルーツ -->
     <div class="tab-pane" id="tab_a" role="tabpanel">
@@ -35,7 +37,7 @@
     <!-- タブ：その他 -->
     <div class="tab-pane" id="tab_c" role="tabpanel">
       <%= render partial: 'food_contents', locals:{eiyou_lists: @eiyou_lists,
-        foods: @others, num: 3} %>
+        foods: @others, num: 2} %>
     </div>
 
   </div><!-- tab-content -->
@@ -47,11 +49,11 @@
   @eiyou_lists.map{|eiyou_hash| eiyou_hash[:magnesium] }.sum,
   @eiyou_lists.map{|eiyou_hash| eiyou_hash[:vitaminc] }.sum,
   @eiyou_lists.map{|eiyou_hash| eiyou_hash[:kcal] }.sum] %>
-  <%# eiyou_sum_rate_list = eiyou_sum_list.map{|eiyou| eiyou / (eiyou_sum_list.sum) * 100} %>
+
   <div class="nutrients_wrapper  clearfix">
     <div class="nutrients_contents">
       <!-- チャート描画キャンバス -->
-      <div><canvas id="myChart" width="350px" height="350px" data-target="<%#= eiyou_sum_rate_list.to_s.delete('[').delete(']') %>"></canvas></div>
+      <div><canvas id="myChart" width="350px" height="350px"></canvas></div>
 
       <div>1杯あたりの栄養素</div>
       <ul>
@@ -62,6 +64,7 @@
         <li>ビタミンC：<span id="vitaminc_sum"><%= eiyou_sum_list[4] %></span>mg</li>
         <li>カロリー：<span id="kcal_sum"><%= eiyou_sum_list[5] %></span>kcal</li>
       </ul>
+
       <div>1日当たりの目安摂取量（女性）</div>
       <ul>
         <li>たんぱく質：6,500mg</li>
@@ -71,26 +74,18 @@
         <li>ビタミンC：100mg</li>
         <li>カロリー：2,000kcal</li>
       </ul>
-    <div class="text-center">
-      <!--
-      ここをform_forに変えて、@smoothieのカラムにhidden_fieldで栄養それぞれ代入。
-      <%= link_to "投稿する", new_smoothy_path, class: "btn btn-primary col-6 my-4 py-3" %>
-      -->
-      <%= form_for(@smoothie) do |f| %>
-        <%= f.submit "投稿する", class: "btn btn-primary col-6 my-4 py-3" %>
-      <% end %>
-    </div>
-    </div> <!-- nutrients_contents -->
 
+      <div class="text-center">
+        <!-- ここをform_forに変えて、@smoothieのカラムにhidden_fieldで栄養それぞれ代入。 -->
+        <%= f.submit "投稿する", class: "btn btn-primary col-6 my-4 py-3" %>
+      </div>
+
+    </div> <!-- nutrients_contents -->
   </div><!-- nutrients_wrapper -->
 </div><!-- custom-wrapper -->
-
+<% end %>
 
 </div><!-- container -->
 </div><!-- bg -->
 
 <%# binding.pry %>
-
-<div id="app">
-<p>{{message}}</p>
-</div>

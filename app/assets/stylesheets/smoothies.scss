@@ -10,6 +10,7 @@
 }
 .card {
 	border-radius: 10px;
+	width: 12rem;
 }
 .card-title {
     font-size: 14px;
@@ -77,49 +78,6 @@ background: #f6f1ea;
 
 // カスタマイズページ
 /*タブ切り替え全体のスタイル*/
-.hidden_box {
-    margin: 2em 0;/*前後の余白*/
-    padding: 0;
-}
-
-/*ボタン装飾*/
-.hidden_box label {
-    padding: 15px;
-    font-weight: bold;
-    border: solid 2px black;
-    cursor :pointer;
-}
-
-/*ボタンホバー時*/
-.hidden_box label:hover {
-    background: #efefef;
-}
-
-/*チェックは見えなくする*/
-.hidden_box input {
-    display: none;
-}
-
-/*中身を非表示にしておく*/
-.hidden_box .hidden_show {
-    height: 0;
-    padding: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: 0.8s;
-}
-
-/*クリックで中身表示*/
-.hidden_box input:checked ~ .hidden_show {
-    padding: 10px 0;
-    height: auto;
-    opacity: 1;
-}
-
-
-
-
-
 .nav-tabs {
 	width: 100%;
 	display: flex;
@@ -250,6 +208,16 @@ input.spinner_down {
 
 /*レスポンシブCSS*/
 @media screen and (max-width:991px) {
+	.card-wrapper {
+		grid-template-columns: repeat(auto-fit, 175px);
+		grid-column-gap: 1rem;
+	}
+	.card {
+		width: 11rem;
+	}
+	.card-body {
+    	padding: 1rem;
+	}
 	.food_content {
 		background-color: #FFF;
 	    padding: 0.5rem;
