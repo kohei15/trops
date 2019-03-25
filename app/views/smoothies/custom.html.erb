@@ -57,7 +57,16 @@
 
       <div>1杯あたりの栄養素</div>
       <ul>
-        <li>たんぱく質：<span id="protein_sum"><%= eiyou_sum_list[0] %></span>mg</li>
+        <!-- jsに各栄養素を渡す -->
+        <input type="hidden" id="protein_sum" name="smoothie[comment]">
+        <input type="hidden" id="calcium_sum" name="smoothie[commentsssss]">
+        <input type="hidden" id="kalium_sum" name="smoothiefffff[commentsssss]">
+        <input type="hidden" id="magnesium_sum" name="smoothiefffff[commentsssss]">
+        <input type="hidden" id="vitaminc_sum" name="smoothiefffff[commentsssfss]">
+        <input type="hidden" id="kcal_sum" name="smoothiefffff[commentsssfss]">
+
+        <!-- jsで各栄養素を表示させる -->
+        <li>たんぱく質：<span class="protein_sum"><%= eiyou_sum_list[0] %></span>mg</li>
         <li>カルシウム：<span id="calcium_sum"><%= eiyou_sum_list[1] %></span>mg</li>
         <li>カリウム：<span id="kalium_sum"><%= eiyou_sum_list[2] %></span>mg</li>
         <li>マグネシウム：<span id="magnesium_sum"><%= eiyou_sum_list[3] %></span>mg</li>

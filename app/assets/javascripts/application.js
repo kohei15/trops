@@ -61,13 +61,21 @@ function updateEiyouso() {
     kcal_sum += food_quantity * kcal;
   });
 
-  // 栄養素の合計値をテキスト形式に変換
-  $("#protein_sum").text(protein_sum);
-  $("#calcium_sum").text(calcium_sum);
-  $("#kalium_sum").text(kalium_sum);
-  $("#magnesium_sum").text(magnesium_sum);
-  $("#vitaminc_sum").text(vitaminc_sum);
-  $("#kcal_sum").text(kcal_sum);
+  // spanタグ(id)をテキスト形式に変換
+  $("#protein_sum").val(protein_sum);
+  $("#calcium_sum").val(calcium_sum);
+  $("#kalium_sum").val(kalium_sum);
+  $("#magnesium_sum").val(magnesium_sum);
+  $("#vitaminc_sum").val(vitaminc_sum);
+  $("#kcal_sum").val(kcal_sum);
+
+  // spanタグ(class)の数値を受け渡す
+  $(".protein_sum").text(protein_sum);
+  $(".calcium_sum").text(calcium_sum);
+  $(".kalium_sum").text(kalium_sum);
+  $(".magnesium_sum").text(magnesium_sum);
+  $(".vitaminc_sum").text(vitaminc_sum);
+  $(".kcal_sum").text(kcal_sum);
 
   // 合計値をグラフに反映
   myRadar.data.datasets[0].data[0] = protein_sum
@@ -211,5 +219,34 @@ jQuery(function($){
         });
       }
     });
+  });
+});
+
+
+
+// ページ上部へボタン
+$(function() {
+  // スクロールしたときに実行
+  $(window).scroll(function () {
+     // 目的のスクロール量を設定(px)
+     var TargetPos = 700;
+     // 現在のスクロール位置を取得
+     var ScrollPos = $(window).scrollTop();
+     // 現在位置が目的のスクロール量に達しているかどうかを判断
+     if( ScrollPos >= TargetPos) {
+        // 達していれば表示
+        $("#page-top").fadeIn();
+     }
+     else {
+        // 達していなければ非表示
+        $("#page-top").fadeOut();
+     }
+  });
+  //スクロールしてトップ
+  $('#page-top').click(function () {
+      $('body,html').animate({
+          scrollTop: 0
+      }, 600);
+      return false;
   });
 });

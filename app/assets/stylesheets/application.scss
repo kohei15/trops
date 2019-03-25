@@ -117,6 +117,28 @@ textarea {
 }
 
 
+// ページ上部へボタン
+#page-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 77%;
+    display: none;
+}
+#page-top a {
+    background: #666;
+    text-decoration: none;
+    color: #fff;
+    width: 100px;
+    padding: 30px 0;
+    text-align: center;
+    display: block;
+    border-radius: 5px;
+}
+#page-top :hover {
+    opacity: 0.8;
+}
+
 
 /*レスポンシブCSS*/
 @media screen and (max-width:991px) {
