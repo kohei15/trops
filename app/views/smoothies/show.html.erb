@@ -23,6 +23,8 @@
 	  	<% else %>
 	  		<%= link_to "お気に入り登録",smoothy_favorite_path(@smoothie), method: :post ,class: "btn btn-warning mt-2" %>
 	  	<% end %>
+
+	  	<%= link_to "削除する", smoothy_path, class: "btn btn-danger mt-2", method: :delete, "data-confirm" => "本当に消しますか？" %>
 	</div>
 	<p class="text-right card-date favorite">
 	  		<!-- 日付 -->
@@ -42,6 +44,20 @@
 	  	</p>
   </div><!-- card-body -->
 </div><!-- card -->
+
+<p>使った食材一覧</p>
+<ul>
+	<% @food.each do |food| %>
+	<li>
+		<%= food.food_name %>
+		:
+		<%#= smoothie_foods.quantity %>
+		 <%= food.unit %>
+
+	</li>
+	<% end %>
+</ul>
+
 
 <p>栄養成分チャート</p>
 <p>β-カロテン:</p>

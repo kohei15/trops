@@ -34,6 +34,7 @@ function updateEiyouso() {
 
   console.log(myRadar.data);
 
+  // 栄養素の計算
   $( '.food_quantity' ).each(function() {
     var food_quantity = parseFloat($(this).val());
     // プロテインの合計値
@@ -61,15 +62,18 @@ function updateEiyouso() {
     kcal_sum += food_quantity * kcal;
   });
 
-  // spanタグ(id)をテキスト形式に変換
+  var food_id = $(this).data('food_id');
+
+  // spanタグ(id)の数値を受け渡す
   $("#protein_sum").val(protein_sum);
   $("#calcium_sum").val(calcium_sum);
   $("#kalium_sum").val(kalium_sum);
   $("#magnesium_sum").val(magnesium_sum);
   $("#vitaminc_sum").val(vitaminc_sum);
   $("#kcal_sum").val(kcal_sum);
+  $("#food_id").val(food_id);
 
-  // spanタグ(class)の数値を受け渡す
+  // spanタグ(class)をテキスト形式に変換
   $(".protein_sum").text(protein_sum);
   $(".calcium_sum").text(calcium_sum);
   $(".kalium_sum").text(kalium_sum);
@@ -249,4 +253,26 @@ $(function() {
       }, 600);
       return false;
   });
+});
+
+
+
+// タブの表示非表示
+$(function () {
+  $('.tab-pane_a').show();
+    $('.tab_a').click(function (){
+        $('.tab-pane_a').toggle('slow');
+        $('.tab-pane_b').hide('slow');
+        $('.tab-pane_c').hide('slow');
+    });
+    $('.tab_b').click(function (){
+        $('.tab-pane_b').toggle('slow');
+        $('.tab-pane_a').hide('slow');
+        $('.tab-pane_c').hide('slow');
+    });
+    $('.tab_c').click(function (){
+        $('.tab-pane_c').toggle('slow');
+        $('.tab-pane_a').hide('slow');
+        $('.tab-pane_b').hide('slow');
+    });
 });

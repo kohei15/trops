@@ -49,9 +49,9 @@ class FoodsController < ApplicationController
   def create
     food = Food.new(food_params)
     food.user_id = 1
-        food.save
-        flash[:notice] = "投稿しました。"
-        redirect_to foods_path
+      food.save
+      flash[:notice] = "投稿しました。"
+      redirect_to foods_path
   end
 
   def destroy

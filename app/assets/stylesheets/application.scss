@@ -15,6 +15,7 @@
 
 @import "bootstrap";
 @import "smoothies";
+@import "users";
 @import "parallax";
 
 * {
@@ -121,8 +122,7 @@ textarea {
 #page-top {
     position: fixed;
     bottom: 20px;
-    right: 20px;
-    font-size: 77%;
+    right: 50px;
     display: none;
 }
 #page-top a {
@@ -156,5 +156,27 @@ textarea {
 	}
 	.invisible-sp {
 		display: none;
+	}
+	input[type="text"] {
+	    width: 20em;
+	    height: 40px;
+	    border: 1px #6c757d solid;
+	}
+	input[type="password"] {
+	    width: 20em;
+	    height: 40px;
+	    border: 1px #6c757d solid;
+	}
+	input[type="email"] {
+	    width: 20em;
+	    height: 40px;
+	    border: 1px #6c757d solid;
+	}
+	select {
+		height: 40px;
+	}
+	textarea {
+		width: 20em;
+		border: 1px #6c757d solid;
 	}
 }

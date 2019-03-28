@@ -33,7 +33,7 @@
           <a class="nav-link" href="#">はじめての方へ</a>
         </li>
         <li class="nav-item">
-          <%= link_to "カスタマイズ", custom_path, class: "nav-link", data: {"turbolinks" => false} %>
+          <%= link_to "カスタマイズ", new_smoothy_path, class: "nav-link", data: {"turbolinks" => false} %>
         </li>
         <li class="nav-item">
           <%= link_to "スムージー一覧", smoothies_path, class: "nav-link" %>
@@ -106,7 +106,8 @@
       </ul>
   </nav>
 </header>
-<div class="message_notice">
-<%= flash[:notice] %>
+
+<div class="alert-success">
+  <div class="message_notice text-center"><%= flash[:notice] %></div>
 </div>
 <div class="head-hr"></div>

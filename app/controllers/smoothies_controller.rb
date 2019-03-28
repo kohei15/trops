@@ -8,38 +8,25 @@ class SmoothiesController < ApplicationController
 
   def show
     @smoothie = Smoothie.find(params[:id])
+    @food = Food.all
   end
 
   def edit
+    # binding.pry
     @smoothie = Smoothie.find(params[:id])
   end
 
   def update
-    smoothie = Smoothie.find(params[:id])
-    smoothie.update(smoothie_params)
-    redirect_to smoothy_path(smoothie.id)
-  end
-
-  def new
-    @smoothie = Smoothie.new
-  end
-
-  def create
-    binding.pry
-    @smoothie = Smoothie.new(smoothie_params)
-    if @smoothie.user_id = current_user.id
-        @smoothie.save
-        flash[:notice] = "投稿しました。"
-        render :action => "new", :views => "smoothies/new"
+    @smoothie = Smoothie.find(params[:id])
+    if @smoothie.update(smoothie_params)
+      flash[:notice] = "更新しました。"
+      redirect_to smoothies_path
     else
-      render :new
+      render :edit
     end
   end
 
-  def destroy
-  end
-
-  def custom
+  def new
     @smoothie = Smoothie.new
     @smoothie_food = @smoothie.smoothie_foods.new
 
@@ -58,6 +45,29 @@ class SmoothiesController < ApplicationController
       Array.new(0, @others.count), @others]
 
     foods = Food.all
+  end
+
+  def create
+    # binding.pry
+    @smoothie = Smoothie.new(smoothie_params)
+    @smoothie.user_id = current_user.id
+    if @smoothie.save
+        # render :action => "edit", :views => "smoothies/edit"
+        redirect_to smoothies_path
+    else
+      # binding.pry
+      render :new
+    end
+  end
+
+  def destroy
+    smoothie = Smoothie.find(params[:id])
+    if smoothie.destroy
+      flash[:notice] = "削除しました。"
+      redirect_to smoothies_path
+    else
+      render :edit
+    end
   end
 
   private
