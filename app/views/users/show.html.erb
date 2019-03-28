@@ -1,1 +1,51 @@
-show
+<%= render 'layouts/header' %>
+
+<div class="bg">
+<div class="container">
+<%= render 'layouts/loginstatus' %>
+
+<h2 class="index-h2">ユーザーマイページ</h2>
+
+<div class="card border-secondary my-3 p-3" id="card">
+	<ul class="ml-5">
+		<li>名前：<%= @user.name %></li>
+		<li>メールアドレス：<%= @user.email %></li>
+		</ul>
+	<div class="mx-auto text-center col-8">
+		<%= link_to "編集する", edit_user_path ,class: "btn btn-warning btn-lg" %>
+	</div><!-- mx-auto text-center col-8 -->
+</div><!-- card border-secondary my-3 p-3 -->
+
+<div id="tab">
+	<ul class="nav nav-tabs-user my-3 mx-auto" role="tablist">
+		<li class="tab-post" role="tab">
+		  <a aria-controls="tab_a" data-toggle="tab" href="#tab_a" role="tab">投稿一覧</a>
+		</li>
+		<li class="tab-favorite" role="tab">
+		  <a aria-controls="tab_b" data-toggle="tab" href="#tab_b" role="tab">お気に入り一覧</a>
+		</li>
+	</ul>
+
+	<div class="tab-content-user">
+	<!-- タブ：投稿スムージーの一覧  -->
+	<div class="tab-pane-user" id="tab_a" role="tabpanel">
+	  <%= render partial: 'smoothies/smoothie_contents', users: @post %>
+	</div>
+
+	<!-- タブ：お気に入り登録したスムージーの一覧 -->
+	<div class="tab-pane-user" id="tab_b" role="tabpanel">
+	  <%#= render partial: 'smoothies/smoothie_contents', users: @favorite %>
+	  </div>
+	</div><!-- tab-content -->
+
+	</div><!-- container -->
+	</div><!-- bg -->
+<!-- </div>tab -->
+
+
+
+
+
+
+</div><!-- container -->
+</div><!-- bg -->

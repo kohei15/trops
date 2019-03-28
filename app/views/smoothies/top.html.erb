@@ -1,7 +1,29 @@
-<h1>Smoothies#top</h1>
-<p>Find me in app/views/smoothies/top.html.erb</p>
-<% if user_signed_in? %>
-  <p>ようこそ、<%= current_user.name %> 様</p>
-<% else %>
-  <p>ようこそ、ゲスト様</p>
-<% end %>
+<%= render 'layouts/header' %>
+
+<div id="paralax_wrapper">
+<div id="first" class="content">
+    <p class="title movingElement" data-speed="-1.5" data-offsety="100">Tropsへようこそ</p>
+    <div class="inner">
+      <h1>カスタマイズする</h1>
+      <p>Ducimus, deleniti, minus minima delectus... </p>
+      <p class="text-center"><%= link_to "カスタマイズする", new_smoothy_path, class: "btn btn-primary", data: {"turbolinks" => false} %></p>
+    </div>
+  </div>
+
+  <div id="second" class="content">
+    <div class="inner">
+      <h2>使い方</h2>
+      <p>laboriosam, asperiores quisquam ...</p>
+      <p class="text-center"><%= link_to "使い方を見る", smoothies_path, class: "btn btn-primary" %></p>
+    </div>
+  </div>
+
+  <div id="third" class="content">
+    <div class="inner">
+      <h2>みんなのスムージー </h2>
+      <p>Laudantium, accusamus, sit... </p>
+      <p class="text-center"><%= link_to "スムージー一覧を見る", smoothies_path, class: "btn btn-primary" %></p>
+    </div>
+  </div>
+
+</div><!-- paralax_wrapper -->

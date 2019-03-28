@@ -39,6 +39,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       # 管理者権限
       t.integer :role, null: false, default: 0
+      t.boolean :admin, default: false
     end
 
     add_index :users, :email,                unique: true

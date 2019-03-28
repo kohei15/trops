@@ -1,1 +1,25 @@
-index
+<%= render 'layouts/header' %>
+<div class="bg">
+<div class="container">
+	<h2 class="index-h2">ユーザー一覧</h2>
+	<table class="table table-hover table-inverse">
+	  <thead>
+	  	<tr>
+	  	  <th>User</th>
+	  	  <th>Edit</th>
+	  	  <th>Delete</th>
+	  	</tr>
+	  </thead>
+	  <tbody>
+	  	<% @users.each do |user| %>
+	  	<tr>
+	  	  <td><%= link_to user.user_name, user_path(user.id) %></td>
+	  	  <td><%= link_to "編集する", edit_user_path(user.id) %></td>
+	  	  <td><%= link_to "削除する", user, method: :delete,
+                                  data: { confirm: "本当に削除しますか?" } %></td>
+	  	</tr>
+	  	</tbody>
+	  <% end %>
+	</table>
+</div><!-- container -->
+</div><!-- bg -->

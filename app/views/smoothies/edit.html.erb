@@ -1,2 +1,35 @@
-<h1>Smoothies#edit</h1>
-<p>Find me in app/views/smoothies/edit.html.erb</p>
+<%= render 'layouts/header' %>
+
+<div class="bg">
+<div class="container">
+
+<h2 class="text-center mx-auto pt-5 pb-3">投稿ページ</h2>
+<hr>
+
+<%= form_for(@smoothie) do |f| %>
+<div class="field mt-3">
+  <div class="field mt-4">
+    <label for="smoothie_name">スムージー名</label><br />
+    <%= f.text_field :smoothie_name, autofocus: true, class: "pl-2", id: "smoothie_name" %>
+  </div>
+
+  <div class="field mt-4">
+    <label for="comment">一言コメント</label><br />
+    <%= f.text_area :comment, rows: 3, class: "pl-2", id: "comment" %>
+  </div>
+
+  <div class="field mt-4">
+    <label>画像</label><br />
+    <%= f.file_field :image, class: "pl-2" %>
+  </div>
+
+  <div class="actions">
+    <div class="mx-auto text-center">
+      <%= f.submit "更新する", class: "btn btn-primary col-6 my-4 py-3" %>
+    </div>
+  </div>
+</div><!-- field -->
+<% end %>
+
+</div><!-- container -->
+</div><!-- bg -->

@@ -14,11 +14,15 @@
  */
 
 @import "bootstrap";
+@import "smoothies";
+@import "users";
+@import "parallax";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color :#696059;
 }
 .clearfix::after {
   content: "";
@@ -26,8 +30,54 @@
   clear: both;
 }
 
+// 全体CSS
+.bg {
+	background-color: #f6f1ea;
+}
 .container {
 	max-width: 1080px;
+	padding: 20px;
+}
+
+// ヘッダー
+header {
+	max-width: 1080px;
+	margin: 0 auto;
+}
+.navbar-brand img{
+	width: 150px;
+    height: auto;
+}
+.icon-content {
+	float: left;
+}
+.icon-wrapper {
+	display: inline-block;
+}
+.icon-wrapper img {
+	width: 30px;
+	height: auto;
+	display: block;
+    margin: 0 auto;
+}
+.icon-text {
+	font-size: 12px;
+}
+.invisible-pc {
+	display: none;
+}
+.invisible-sp {
+	display: inline-block;
+}
+.head-hr {
+    width: 100%;
+    background-color: #fff;
+    border-top: solid 1px #d4d4c0;
+    overflow: hidden;
+}
+.message_notice {
+	max-width: 1080px;
+	margin: 0 auto;
 }
 
 
@@ -45,84 +95,88 @@
 	margin-left: 1em;
 }
 input[type="text"] {
-        width: 30em;
-        height: 40px;
-        border: 1px #6c757d solid;
+    width: 30em;
+    height: 40px;
+    border: 1px #6c757d solid;
 }
 input[type="password"] {
-        width: 30em;
-        height: 40px;
-        border: 1px #6c757d solid;
+    width: 30em;
+    height: 40px;
+    border: 1px #6c757d solid;
 }
 input[type="email"] {
-        width: 30em;
-        height: 40px;
-        border: 1px #6c757d solid;
+    width: 30em;
+    height: 40px;
+    border: 1px #6c757d solid;
+}
+select {
+	height: 40px;
+}
+textarea {
+	width: 30em;
+	border: 1px #6c757d solid;
 }
 
 
-/*タブ切り替え*/
-.cp_tab *, .cp_tab *:before, .cp_tab *:after {
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+// ページ上部へボタン
+#page-top {
+    position: fixed;
+    bottom: 20px;
+    right: 50px;
+    display: none;
 }
-.cp_tab {
-	margin: 1em auto;
+#page-top a {
+    background: #666;
+    text-decoration: none;
+    color: #fff;
+    width: 100px;
+    padding: 30px 0;
+    text-align: center;
+    display: block;
+    border-radius: 5px;
 }
-.cp_tab > input[type='radio'] {
-	margin: 0;
-	padding: 0;
-	border: none;
-	border-radius: 0;
-	outline: none;
-	background: none;
-	-webkit-appearance: none;
-	        appearance: none;
-	display: none;
+#page-top :hover {
+    opacity: 0.8;
 }
-.cp_tab .cp_tabpanel {
-	display: none;
-}
-.cp_tab > input:first-child:checked ~ .cp_tabpanels > .cp_tabpanel:first-child,
-.cp_tab > input:nth-child(3):checked ~ .cp_tabpanels > .cp_tabpanel:nth-child(2),
-.cp_tab > input:nth-child(5):checked ~ .cp_tabpanels > .cp_tabpanel:nth-child(3),
-.cp_tab > input:nth-child(7):checked ~ .cp_tabpanels > .cp_tabpanel:nth-child(4),
-.cp_tab > input:nth-child(9):checked ~ .cp_tabpanels > .cp_tabpanel:nth-child(5),
-.cp_tab > input:nth-child(11):checked ~ .cp_tabpanels > .cp_tabpanel:nth-child(6) {
-	display: block;
-}
-.cp_tab > label {
-	position: relative;
-	display: inline-block;
-	padding: 15px;
-	cursor: pointer;
-	border: 1px solid transparent;
-	border-bottom: 0;
-    width: 49%;
-    border-radius: 6px 6px 0 0;
-    text-align: center;;
-}
-.cp_tab > label:hover,
-.cp_tab > input:focus + label {
-	color: #0066cc;
-}
-.cp_tab > input:checked + label {
-	margin-bottom: -1px;
-	border-color: #cccccc;
-	border-bottom: 1px solid #ffffff;/*背景色と同じ*/
-	border-radius: 6px 6px 0 0;
-	width: 50%;
-	text-align: center;
-}
-.cp_tab .cp_tabpanel {
-	padding: 0 1em;
-}
-@media (max-width: 480px) {
-	.cp_tab {
-		width: 100%;
-		font-size: 0.8em;
+
+
+/*レスポンシブCSS*/
+@media screen and (max-width:991px) {
+	.icon-wrapper img {
+    	width: 20px;
 	}
-	.cp_tab label {
-		padding: 0.5em;
+	.icon-content {
+		height: 50px;
+	}
+	.icon-text {
+    	font-size: 10px;
+	}
+	.invisible-pc {
+		display: inline-block;
+	}
+	.invisible-sp {
+		display: none;
+	}
+	input[type="text"] {
+	    width: 20em;
+	    height: 40px;
+	    border: 1px #6c757d solid;
+	}
+	input[type="password"] {
+	    width: 20em;
+	    height: 40px;
+	    border: 1px #6c757d solid;
+	}
+	input[type="email"] {
+	    width: 20em;
+	    height: 40px;
+	    border: 1px #6c757d solid;
+	}
+	select {
+		height: 40px;
+	}
+	textarea {
+		width: 20em;
+		border: 1px #6c757d solid;
 	}
 }

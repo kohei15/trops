@@ -1,2 +1,37 @@
-<h1>Foods#index</h1>
-<p>Find me in app/views/foods/index.html.erb</p>
+<%= render 'layouts/header' %>
+<div class="bg">
+<div class="container">
+	<h2 class="index-h2">食材一覧</h2>
+	<table class="table table-hover table-inverse">
+	  <thead>
+	  	<tr>
+	  	  <th>Image</th>
+	  	  <th>Title</th>
+	  	  <th>Edit</th>
+	  	  <th>Delete</th>
+	  	</tr>
+	  </thead>
+	  <tbody>
+	  	<% @foods.each do |food| %>
+	  	<tr>
+	  	  <td>
+	   	<% if food.image.attached? %>
+	  		<%= link_to food_path(food.id) do %>
+	  	  	<%= image_tag food.image, size: "100x100" %>
+	  		<% end %>
+	  	<% else %>
+	  		<%= link_to food_path(food.id) do %>
+	  		<%= image_tag '/images/no_image.jpg', size: "100x100" %>
+	  		<% end %>
+	  	<% end %>
+	  	  </td>
+	  	  <td><%= link_to food.food_name, food_path(food.id) %></td>
+	  	  <td><%= link_to "編集する", edit_food_path(food.id) %></td>
+	  	  <td><%= link_to "削除する", food, method: :delete,
+                                  data: { confirm: "本当に削除しますか?" } %></td>
+	  	</tr>
+	  	</tbody>
+	  <% end %>
+	</table>
+</div><!-- container -->
+</div><!-- bg -->
