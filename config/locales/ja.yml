@@ -35,3 +35,19 @@ ja:
   other: 'その他'
   password: パスワード
   password_confirmation: パスワード(確認用)
+  confirmed: "アカウントが確認されました。ログインしています。"
+  already_authenticated: "既にログインしています。"
+  inactive: "Your account is not activated yet."
+  invalid: "メールアドレスかパスワードが正しくありません。"
+  not_found_in_database: "メールアドレスまたはパスワードが無効です。"
+  unauthenticated: "ログインまたは登録が必要です。"
+  no_token: "このページにアクセスする事が出来ません。正しいURLでアクセスしている事を確認して下さい。"
+  send_instructions: "パスワードのリセット方法を数分以内にメールでご連絡します。"
+  updated: "パスワードを変更しました。"
+  updated_not_active: "パスワードを変更しました。"
+  destroyed: "アカウントを削除しました。またのご利用をお待ちしております。"
+  signed_up: "アカウント登録を受け付けました。"
+  updated: "アカウントが更新されました。"
+  signed_in: "ログインしました。"
+  signed_out: "ログアウトしました。"
+  not_found: "は見つかりませんでした。"

@@ -5,7 +5,10 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@smoothies = Smoothie.where(user_id: current_user).order(created_at: "desc")
+		@smoothies = Smoothie.all.includes(:user)
+		@post = Smoothie.where(user_id: current_user).order(created_at: "desc")
+		# @favorite = Smoothie.where(user_id: current_user).order(created_at: "desc")
+		# @smoothies = Smoothie.where(user_id: current_user).order(created_at: "desc")
 	end
 
 	def edit

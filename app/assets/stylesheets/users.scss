@@ -1,3 +1,57 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/*タブ切り替え全体のスタイル*/
+.mypage-wrapper{
+	height: auto;
+}
+.nav-tabs-user {
+	width: 100%;
+	display: flex;
+}
+.nav-tabs-user li {
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+	width: calc(100%/2);
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+.nav-tabs-user li a {
+	display: inline-block;
+	width: 100%;
+	color: #696059;
+	text-decoration: none;
+}
+.nav-tabs-user li:hover {
+	opacity: 0.75;
+}
+.tab-post {
+	border: 1px solid #e3d395;
+}
+.tab-post .active {
+	background-color: #32A86C;
+	color: #fff;
+}
+.tab-favorite {
+	border: 1px solid #e3d395;
+}
+.tab-favorite .active {
+	background-color: #F78282;
+	color: #fff;
+}
+
+
+
+
+/*レスポンシブCSS*/
+@media screen and (max-width:991px) {
+	.card-wrapper {
+		grid-template-columns: repeat(auto-fit, 175px);
+		grid-column-gap: 1rem;
+	}
+	.card {
+		width: 11rem;
+	}
+	.card-body {
+    	padding: 1rem;
+	}
+}
