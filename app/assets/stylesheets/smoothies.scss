@@ -176,7 +176,7 @@ input.spinner_up {
     border: 0px;
     width: 30px;
     height: 30px;
-    background: url("plus.png") no-repeat;
+    background: url("/images/plus.png") no-repeat;
     background-size: cover;
 }
 input.spinner_down {
@@ -184,7 +184,7 @@ input.spinner_down {
     border: 0px;
     width: 30px;
     height: 30px;
-    background: url("minus.png") no-repeat;
+    background: url("/images/minus.png") no-repeat;
     background-size: cover;
 }
 
@@ -283,7 +283,7 @@ input.spinner_down {
 	    border: 0px;
 	    width: 1.1rem;
 	    height: 1.1rem;
-	    background: url("plus.png") no-repeat;
+	    background: url("/images/plus.png") no-repeat;
 	    background-size: cover;
 	}
 	input.spinner_down {
@@ -291,7 +291,7 @@ input.spinner_down {
 	    border: 0px;
 	    width: 1.1rem;
 	    height: 1.1rem;
-	    background: url("minus.png") no-repeat;
+	    background: url("/images/minus.png") no-repeat;
 	    background-size:cover;
 	}
 }

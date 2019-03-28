@@ -22,7 +22,7 @@
 
 /* first */
 #first  {
-	background: url("top1.jpg") center 10% no-repeat fixed;
+	background: url("/images/top1.jpg") center 10% no-repeat fixed;
 	background-size: cover;
 }
 .title {
@@ -39,7 +39,7 @@
 
 /* second  */
 #second {
-	background: url("top2.jpg") center 0 no-repeat fixed;
+	background: url("/images/top2.jpg") center 0 no-repeat fixed;
 	background-size: cover;
 }
 #second .inner {
@@ -49,7 +49,7 @@
 
 /*  third  */
 #third  {
-	background: url("top3.jpg") center 0 no-repeat fixed;
+	background: url("/images/top3.jpg") center 0 no-repeat fixed;
 	background-size: cover;
 }
 #third .inner {
