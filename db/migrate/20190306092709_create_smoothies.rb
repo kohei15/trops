@@ -1,6 +1,6 @@
 class CreateSmoothies < ActiveRecord::Migration[5.2]
   def change
-    create_table :smoothies do |t|
+    create_table :smoothies, :options => 'ENGINE=InnoDB ROW_FORMAT=DYNAMIC' do |t|
       t.string :smoothie_name
       t.string :smoothie_image
       t.text :comment
