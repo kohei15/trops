@@ -11,7 +11,7 @@
   	<% if @smoothie.image.attached? %>
   		<%= image_tag @smoothie.image %>
   	<% else %>
-  		<%= image_tag 'no_image.jpg' %>
+  		<%= image_tag '/images/no_image.jpg' %>
   	<% end %>
   	<p class="card-text my-2"><%= @smoothie.comment %></p>
   	<div class="mx-auto text-center">
@@ -32,12 +32,12 @@
 	  		<!-- お気に入り数 -->
 	  	  <% if @smoothie.favorited_by?(current_user) %>
 	  		<%= link_to smoothy_favorite_path(@smoothie), method: :delete do %>
-		      <%= image_tag 'heart_off.png', :size =>'14x14' %>
+		      <%= image_tag '/images/heart_off.png', :size =>'14x14' %>
 		      <%= @smoothie.favorites.count %>
 		    <% end %>
 	  	  <% else %>
 	  		<%= link_to smoothy_favorite_path(@smoothie), method: :post do %>
-		      <%= image_tag 'heart_on.png', :size =>'14x14' %>
+		      <%= image_tag '/images/heart_on.png', :size =>'14x14' %>
 		      <%= @smoothie.favorites.count %>
 		    <% end %>
 	  	  <% end %>

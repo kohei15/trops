@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light">
     <%= link_to root_path ,class: "navbar-brand" do %>
-    <%= image_tag 'logo.png' %>
+    <%= image_tag '/images/logo.png' %>
     <% end %>
     <!-- SPのみ表示 -->
     <ul class="navbar-nav ml-auto mr-3 icon-wrapper invisible-pc">
@@ -9,7 +9,7 @@
       <% if user_signed_in? %>
         <li class="nav-item icon-content">
           <%= link_to user_path(current_user.id), class: "nav-link" do %>
-          <%= image_tag 'mypage.png' %>
+          <%= image_tag '/images/mypage.png' %>
           <span class="icon-text">マイページ</span>
           <% end %>
         </li>
@@ -17,7 +17,7 @@
       <% else %>
         <li class="nav-item icon-content">
           <%= link_to new_user_session_path, class: "nav-link" do %>
-          <%= image_tag 'login.png' %>
+          <%= image_tag '/images/login.png' %>
           <span class="icon-text">ログイン</span>
           <% end %>
         </li>
@@ -70,7 +70,7 @@
       <ul class="navbar-nav icon-wrapper invisible-sp">
         <li class="nav-item icon-content">
           <%= link_to smoothies_path, class: "nav-link" do %>
-          <%= image_tag 'mail.png' %>
+          <%= image_tag '/images/mail.png' %>
           <span class="icon-text">お問い合わせ</span>
           <% end %>
         </li>
@@ -78,13 +78,13 @@
         <% if user_signed_in? %>
         <li class="nav-item icon-content">
           <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
-            <%= image_tag 'logout.png' %>
+            <%= image_tag '/images/logout.png' %>
             <span class="icon-text">ログアウト</span>
           <% end %>
         </li>
         <li class="nav-item icon-content">
           <%= link_to user_path(current_user.id), class: "nav-link" do %>
-          <%= image_tag 'mypage.png' %>
+          <%= image_tag '/images/mypage.png' %>
           <span class="icon-text">マイページ</span>
           <% end %>
         </li>
@@ -92,13 +92,13 @@
         <% else %>
         <li class="nav-item icon-content">
           <%= link_to new_user_session_path, class: "nav-link" do %>
-          <%= image_tag 'login.png' %>
+          <%= image_tag '/images/login.png' %>
           <span class="icon-text">ログイン</span>
           <% end %>
         </li>
         <li class="nav-item icon-content">
           <%= link_to new_user_registration_path, class: "nav-link" do %>
-          <%= image_tag 'mypage.png' %>
+          <%= image_tag '/images/mypage.png' %>
           <span class="icon-text">新規登録</span>
           <% end %>
         </li>

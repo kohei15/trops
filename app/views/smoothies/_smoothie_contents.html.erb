@@ -9,7 +9,7 @@
 	  		<% end %>
 	  	<% else %>
 	  		<%= link_to smoothy_path(smoothie.id) do %>
-	  		<%= image_tag 'no_image.jpg' %>
+	  		<%= image_tag '/images/no_image.jpg' %>
 	  		<% end %>
 	  	<% end %>
 	  	<p class="card-text text-left my-2">
@@ -21,10 +21,10 @@
 	  		<%= smoothie.created_at.strftime('%Y.%m.%d')  %>
 	  		<!-- お気に入り数 -->
 	  	  <% if smoothie.favorited_by?(current_user) %>
-	  		<%= image_tag 'heart_off.png', :size =>'14x14' %>
+	  		<%= image_tag '/images/heart_off.png', :size =>'14x14' %>
 		    <%= smoothie.favorites.count %>
 	  	  <% else %>
-	  		<%= image_tag 'heart_on.png', :size =>'14x14' %>
+	  		<%= image_tag '/images/heart_on.png', :size =>'14x14' %>
 	  		<%= smoothie.favorites.count %>
 	  	  <% end %>
 	  	</p>
