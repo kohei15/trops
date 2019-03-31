@@ -4,8 +4,7 @@
 <div class="container">
 <%= render 'layouts/loginstatus' %>
 
-
-<div class="card card-body text-center" style="width: 18rem;">
+<div class="card card-body text-center mx-auto my-3" style="width: 18rem;">
   <div class="card-body">
   	<h5 class="card-title"><%= @smoothie.smoothie_name %></h5>
   	<% if @smoothie.image.attached? %>
@@ -15,8 +14,7 @@
   	<% end %>
   	<p class="card-text my-2"><%= @smoothie.comment %></p>
   	<div class="mx-auto text-center">
-		<%= link_to "編集する", edit_smoothy_path ,class: "btn btn-warning" %>
-
+  		<%= link_to @smoothie.user.name, user_path(@smoothie.user_id) %></p>
 		<!-- お気に入り -->
 		<% if @smoothie.favorited_by?(current_user) %>
 			<%= link_to "お気に入り解除",smoothy_favorite_path(@smoothie), method: :delete ,class: "btn btn-warning mt-2" %>
@@ -24,7 +22,10 @@
 	  		<%= link_to "お気に入り登録",smoothy_favorite_path(@smoothie), method: :post ,class: "btn btn-warning mt-2" %>
 	  	<% end %>
 
+	  	<% if current_user.id == @smoothie.user %>
+		<%= link_to "編集する", edit_smoothy_path ,class: "btn btn-warning" %>
 	  	<%= link_to "削除する", smoothy_path, class: "btn btn-danger mt-2", method: :delete, "data-confirm" => "本当に消しますか？" %>
+	  	<% end %>
 	</div>
 	<p class="text-right card-date favorite">
 	  		<!-- 日付 -->
@@ -46,19 +47,17 @@
 </div><!-- card -->
 
 <p>使った食材一覧</p>
-<ul>
-	<% @food.each do |food| %>
+<ul class="mx-auto">
+	<% @smoothie_foods.each do |smoothie_food| %>
 	<li>
-		<%= food.food_name %>
-		:
-		<%#= smoothie_foods.quantity %>
-		 <%= food.unit %>
-
+		<%= smoothie_food.food.food_name %>:
+		<%= smoothie_food.quantity %>
+		 <%= smoothie_food.food.unit %>
 	</li>
 	<% end %>
 </ul>
 
-
+<!--
 <p>栄養成分チャート</p>
 <p>β-カロテン:</p>
 <p>カルシウム:</p>
@@ -74,6 +73,7 @@
 	<li>※流通・保存・調理過程におけるビタミン・ミネラル含有量の損失については考慮されていません。</li>
 	<li>※計算の過程で数kcalの誤差が生じる可能性があります。</li>
 </ul>
+-->
 
 </div><!-- container -->
 </div><!-- bg -->

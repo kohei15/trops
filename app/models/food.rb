@@ -1,5 +1,6 @@
 class Food < ApplicationRecord
   has_many :smoothie_foods
+  has_many :smoothies, through: :smoothie_foods
   belongs_to :user
   has_one_attached :image
 
