@@ -1,3 +1,5 @@
+<div class="header-wrapper">
+
 <header>
   <nav class="navbar navbar-expand-lg navbar-light">
     <%= link_to root_path ,class: "navbar-brand" do %>
@@ -29,9 +31,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <ul class="navbar-nav mr-auto">
+        <!--
         <li class="nav-item">
-          <a class="nav-link" href="#">はじめての方へ</a>
+          <%= link_to "はじめての方へ", about_path, class: "nav-link" %>
         </li>
+         -->
         <li class="nav-item">
           <%= link_to "カスタマイズ", new_smoothy_path, class: "nav-link", data: {"turbolinks" => false} %>
         </li>
@@ -49,7 +53,7 @@
         <!-- SPのみ表示 -->
           <div class="invisible-pc">
             <li class="nav-item">
-              <%= link_to "お問い合わせ", smoothies_path, class: "nav-link" %>
+              <%= link_to "お問い合わせ", inquiryform_path, class: "nav-link" %>
             </li>
             <!-- ログイン時 -->
             <% if user_signed_in? %>
@@ -69,7 +73,7 @@
       <!-- PCのみ表示 -->
       <ul class="navbar-nav icon-wrapper invisible-sp">
         <li class="nav-item icon-content">
-          <%= link_to smoothies_path, class: "nav-link" do %>
+          <%= link_to inquiryform_path, class: "nav-link" do %>
           <%= image_tag '/images/mail.png' %>
           <span class="icon-text">お問い合わせ</span>
           <% end %>
@@ -111,3 +115,5 @@
   <div class="message_notice text-center"><%= flash[:notice] %></div>
 </div>
 <div class="head-hr"></div>
+
+</div><!-- header-wrapper -->

@@ -229,7 +229,7 @@ jQuery(function($){
 
 
 // ページ上部へボタン
-$(function() {
+$(document).on('turbolinks:load', function() {
   // スクロールしたときに実行
   $(window).scroll(function () {
      // 目的のスクロール量を設定(px)
@@ -263,16 +263,21 @@ $(function () {
     $('.tab_a').click(function (){
         $('.tab-pane_a').toggle('slow');
         $('.tab-pane_b').hide('slow');
-        $('.tab-pane_c').hide('slow');
     });
     $('.tab_b').click(function (){
         $('.tab-pane_b').toggle('slow');
         $('.tab-pane_a').hide('slow');
-        $('.tab-pane_c').hide('slow');
     });
-    $('.tab_c').click(function (){
-        $('.tab-pane_c').toggle('slow');
-        $('.tab-pane_a').hide('slow');
-        $('.tab-pane_b').hide('slow');
+});
+
+
+
+// タブの表示非表示
+$(function () {
+  $('.btn-hide').show();
+  $('.smoothie_field').hide();
+    $('.btn-hide').click(function (){
+        $('.btn-hide').hide('slow');
+        $('.smoothie_field').show('slow');
     });
 });

@@ -1,5 +1,13 @@
 class SmoothiesController < ApplicationController
+  before_action :authenticate_user!, only: [:destroy, :update, :create, :new]
+
   def top
+  end
+
+  def about
+  end
+
+  def inquiryform
   end
 
   def index
@@ -8,11 +16,10 @@ class SmoothiesController < ApplicationController
 
   def show
     @smoothie = Smoothie.find(params[:id])
-    @food = Food.all
+    @smoothie_foods = @smoothie.smoothie_foods
   end
 
   def edit
-    # binding.pry
     @smoothie = Smoothie.find(params[:id])
   end
 
@@ -48,10 +55,15 @@ class SmoothiesController < ApplicationController
   end
 
   def create
-    # binding.pry
     @smoothie = Smoothie.new(smoothie_params)
     @smoothie.user_id = current_user.id
     if @smoothie.save
+      params["smoothie"]["foods"].each do |food,number|
+        if number.to_i != 0
+          SmoothieFood.create(smoothie_id: @smoothie.id,food_id: food,quantity: number)
+        end
+      end
+      binding.pry
         # render :action => "edit", :views => "smoothies/edit"
         redirect_to smoothies_path
     else

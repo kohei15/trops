@@ -9,9 +9,9 @@
 
 
 User.create!(id: 1, name: "管理者", email: "101j00113@gmail.com", password: "adminadmin", admin: true)
-(2..10).each do |i|
+(2..5).each do |i|
      User.create!(id: i, name: "ユーザー#{i}", email: "test#{i}@gmail.com", password: "testtest")
-     10.times do |j|
+     5.times do |j|
      	Smoothie.create!(smoothie_name: "スムージー#{i}", comment: "コメントコメントコメントコメント", user_id: i)
 	end
 end
