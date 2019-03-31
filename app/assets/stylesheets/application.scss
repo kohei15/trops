@@ -40,6 +40,12 @@
 }
 
 // ヘッダー
+.header-wrapper {
+	position: sticky;
+	top: 0;
+	background-color: white;
+	z-index: 10;
+}
 header {
 	max-width: 1080px;
 	margin: 0 auto;
@@ -122,7 +128,7 @@ textarea {
 #page-top {
     position: fixed;
     bottom: 20px;
-    right: 50px;
+    right: 30px;
     display: none;
 }
 #page-top a {
@@ -137,6 +143,10 @@ textarea {
 }
 #page-top :hover {
     opacity: 0.8;
+}
+footer {
+	background-color: #f6f1ea;
+	clear: both;
 }
 
 
@@ -158,17 +168,17 @@ textarea {
 		display: none;
 	}
 	input[type="text"] {
-	    width: 20em;
+	    width: 18em;
 	    height: 40px;
 	    border: 1px #6c757d solid;
 	}
 	input[type="password"] {
-	    width: 20em;
+	    width: 18em;
 	    height: 40px;
 	    border: 1px #6c757d solid;
 	}
 	input[type="email"] {
-	    width: 20em;
+	    width: 18em;
 	    height: 40px;
 	    border: 1px #6c757d solid;
 	}
@@ -176,7 +186,10 @@ textarea {
 		height: 40px;
 	}
 	textarea {
-		width: 20em;
+		width: 18em;
 		border: 1px #6c757d solid;
+	}
+	#page-top {
+	    right: 10px;
 	}
 }

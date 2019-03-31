@@ -12,9 +12,10 @@
 	  		<%= image_tag '/images/no_image.jpg' %>
 	  		<% end %>
 	  	<% end %>
-	  	<p class="card-text text-left my-2">
-	  		<%= link_to smoothie.user.name, user_path(smoothie.user_id) %></p>
-	  	<%= link_to "編集する", edit_smoothy_path(smoothie.id), class: "btn btn-primary my-2" %>
+	  	<p class="card-text text-left my-2"><%= link_to smoothie.user.name, user_path(smoothie.user_id) %></p>
+	  	<% if current_user.id == smoothie.user %>
+	  		<%= link_to "編集する", edit_smoothy_path(smoothie.id), class: "btn btn-primary my-2" %>
+	  	<% end %>
 	  	<%= link_to "詳細をみる", smoothy_path(smoothie.id), class: "btn btn-primary" %>
 	  	<p class="text-right card-date favorite">
 	  		<!-- 日付 -->

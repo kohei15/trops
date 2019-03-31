@@ -8,12 +8,16 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js"></script>
-    <%= favicon_link_tag(‘favicon.png’, skip_pipeline: true) %>
+    <%#= favicon_link_tag(‘favicon.png’, skip_pipeline: true) %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   </head>
 
   <body>
     <%= yield %>
     <p id="page-top"><%= image_tag '/images/page-top.png' %></p>
+    <footer>
+      <div class="head-hr"></div>
+      <p class="text-center p-3">Copyright © Trops All Rights Reserved.</p>
+    </footer>
   </body>
 </html>

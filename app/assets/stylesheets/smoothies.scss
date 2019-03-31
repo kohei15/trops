@@ -87,6 +87,10 @@ background: #f6f1ea;
 .nav-tabs {
 	width: 100%;
 	display: flex;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	z-index: 4;
 }
 .nav-tabs li {
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -108,7 +112,7 @@ background: #f6f1ea;
 }
 .tab-pane {
 	overflow: scroll;
-    height: 50rem;
+    height: 48rem;
     float: left;
 }
 .tab-fruits {
@@ -120,19 +124,12 @@ background: #f6f1ea;
 .tab-vegetables {
 	border: 1px solid #e3d395;
 }
-.tab-other {
-	border: 1px solid #e3d395;
-}
 .tab-fruits .active {
 	background-color: #F78282;
 	color: #fff;
 }
 .tab-vegetables .active {
 	background-color: #32A86C;
-	color: #fff;
-}
-.tab-other .active {
-	background-color: #e3d395;
 	color: #fff;
 }
 
@@ -233,6 +230,10 @@ input.spinner_down {
 	.card-body {
     	padding: 1rem;
 	}
+
+	.custom-wrapper {
+		min-height: 60rem;
+	}
 	.tab-content {
 		position: relative;
 		z-index: 2
@@ -245,7 +246,7 @@ input.spinner_down {
 	    font-size: 12px;
 	}
 	.food_content:nth-child(n + 2) {
-		margin-top: 1rem;
+		margin-top: 0.5rem;
 	}
 	.food_image {
 		max-width: 80%;
@@ -293,5 +294,9 @@ input.spinner_down {
 	    height: 1.1rem;
 	    background: url("/images/minus.png") no-repeat;
 	    background-size:cover;
+	}
+	canvas {
+		height: 320px;
+	    width: 320px;
 	}
 }

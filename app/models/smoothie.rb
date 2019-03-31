@@ -1,5 +1,6 @@
 class Smoothie < ApplicationRecord
   has_many :smoothie_foods
+  has_many :foods, through: :smoothie_foods
   has_many :favorites,dependent: :destroy
   belongs_to :user
   has_one_attached :image

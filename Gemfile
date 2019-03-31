@@ -79,10 +79,10 @@ gem 'jquery-rails'
 gem 'devise'
 
 # activeadmin
-gem 'activeadmin'
+# gem 'activeadmin'
 
 # ransack
-gem 'ransack'
+# gem 'ransack'
 
 # kaminari + infinite-scroll
 gem 'kaminari'
@@ -93,7 +93,7 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
 # chartkick
-gem 'chartkick'
+# gem 'chartkick'
 
 # paranoia
 gem 'paranoia'

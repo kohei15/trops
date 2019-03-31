@@ -5,8 +5,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@smoothies = Smoothie.all.includes(:user)
-		@post = Smoothie.where(user_id: current_user).order(created_at: "desc")
+		@smoothies = Smoothie.where(user_id: current_user.id).order(created_at: "desc")
 		# @favorite = Smoothie.where(user_id: current_user).order(created_at: "desc")
 		# @smoothies = Smoothie.where(user_id: current_user).order(created_at: "desc")
 	end
@@ -33,6 +32,13 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
+	    user = User.find(params[:id])
+	    if user.destroy
+	      flash[:notice] = "削除しました。"
+	      redirect_to users_path
+	    else
+	      render :index
+	    end
 	end
 
 	def admin
