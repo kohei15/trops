@@ -13,7 +13,7 @@
 	  		<% end %>
 	  	<% end %>
 	  	<p class="card-text text-left my-2"><%= link_to smoothie.user.name, user_path(smoothie.user_id) %></p>
-	  	<% if current_user.id == smoothie.user %>
+	  	<% if current_user == smoothie.user_id %>
 	  		<%= link_to "編集する", edit_smoothy_path(smoothie.id), class: "btn btn-primary my-2" %>
 	  	<% end %>
 	  	<%= link_to "詳細をみる", smoothy_path(smoothie.id), class: "btn btn-primary" %>

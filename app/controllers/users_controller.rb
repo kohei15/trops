@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@smoothies = Smoothie.where(user_id: current_user.id).order(created_at: "desc")
+		@smoothies = Smoothie.where(user_id: @user.id).order(created_at: "desc")
 		# @favorite = Smoothie.where(user_id: current_user).order(created_at: "desc")
 		# @smoothies = Smoothie.where(user_id: current_user).order(created_at: "desc")
 	end
@@ -45,9 +45,9 @@ class UsersController < ApplicationController
 	end
 
 	private
-	def corrent_user
+	def current_user
 		user = User.find(params[:id])
-		if corrent_user != user
+		if current_user != user
 			redirect_to root_path
 		end
 	end
